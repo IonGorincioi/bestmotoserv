@@ -41,49 +41,70 @@
 
     <title>{% block title %}{% endblock %}</title>
   </head>
+
   <body>
     <!-- SET UP THE NAVIGATION BAR -->
-    <div id="navigation">
-      <ul
-        id="navigation_links"
-        class="nav navbar-expand-lg navbar-light"
-        style="background-color: #e3f2fd"
-      >
-        <li class="nav-link">
-          <a href="{{url_for('home')}}">Home</a>
-        </li>
-        <li class="nav-link">
-          <a href="{{url_for('about')}}">About</a>
-        </li>
-        <li class="nav-link">
-          <a href="{{url_for('pricing')}}">Pricing</a>
-        </li>
-        <li class="nav-link">
-          <a href="{{url_for('login')}}">Login</a>
-        </li>
-        <li class="nav-link">
-          <a href="{{url_for('register')}}">Register</a>
-        </li>
+    <nav class="navbar navbar-expand-lg" style="background-color: #222">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{url_for('home')}}">Garage</a>
 
-        <li class="nav-link">
-          <a href="{{url_for('contacts')}}">Contacts</a>
-        </li>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        ></button>
 
-        <li class="nav-link">
-          <a href="#">Logout</a>
-        </li>
-      </ul>
-    </div>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul
+            class="navigation navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style="--bs-scroll-height: 100px"
+          >
+            <li class="nav-link">
+              <a href="{{url_for('home')}}">Home</a>
+            </li>
+
+            <li class="nav-link">
+              <a href="{{url_for('about')}}">About</a>
+            </li>
+
+            <li class="nav-link">
+              <a href="{{url_for('pricing')}}">Pricing</a>
+            </li>
+
+            <li class="nav-link">
+              <a href="{{url_for('login')}}">Login</a>
+            </li>
+
+            <li class="nav-link">
+              <a href="{{url_for('register')}}">Register</a>
+            </li>
+
+            <li class="nav-link">
+              <a href="{{url_for('contacts')}}">Contacts</a>
+            </li>
+
+            <li class="nav-link">
+              <a href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- HEADER -->
     <div class="header">{% block header %}{% endblock %}</div>
 
     <!-- BODY CONTENT -->
-    <div class="basepage">{% block content %} {% endblock %}</div>
+    <div>{% block content %} {% endblock %}</div>
 
     <!-- FOOTER -->
     <footer>
-      <p>Copyright &copy; 2022 Ion Gorincioi</p>
+      <p>Copyright &copy; 2022</p>
+      <p>Ion Gorincioi</p>
     </footer>
   </body>
 </html>

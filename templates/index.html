@@ -14,56 +14,61 @@
   <div class="homeMainSection">
     <div class="mainImage"></div>
 
+    <div class="homeAssideSection">
+      <div class="homepageButton">
+        <button type="button" class="btn btn-primary btn-lg bookservice">
+          Book a car service
+        </button>
+      </div>
+
+      <div class="homepageButton">
+        <button type="button" class="btn btn-primary btn-lg bookservice">
+          Contact us for advice
+        </button>
+      </div>
+
+      <div class="dropdown homepageButton">
+        <button
+          class="btn btn-primary dropdown-toggle bookservice btn-lg"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Useful tips
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+              >Accident advices</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+              >Car maintainance tips</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <div class="mainContent">
-      <h1>Welcome to first div!</h1>
-      <h1>Welcome to first div!</h1>
-      <h1>Welcome to first div!</h1>
-      <h1>Welcome to first div!</h1>
-      <h1>Welcome to first div!</h1>
-      <h1>Welcome to first div!</h1>
-    </div>
-  </div>
-
-  <div class="homeAssideSection">
-    <div class="homepageButton">
-      <button type="button" class="btn btn-primary btn-lg bookservice">
-        Book a car service
-      </button>
-    </div>
-
-    <div class="homepageButton">
-      <button type="button" class="btn btn-primary btn-lg bookservice">
-        Contact us for advice
-      </button>
-    </div>
-
-    <div class="dropdown homepageButton">
-      <button
-        class="btn btn-primary dropdown-toggle bookservice btn-lg"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Useful tips
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li>
-          <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
-            >Accident advices</a
-          >
-        </li>
-        <li>
-          <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
-            >Car maintainance tips</a
-          >
-        </li>
-        <li>
-          <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"></a>
-        </li>
-      </ul>
-    </div>
-
-    {% endblock %}
+      <h1>
+        Welcome to first div! Welcome to first div! Welcome to first div!
+        Welcome to first div! Welcome to first div! Welcome to first div!
+        Welcome to first div! Welcome to first div! Welcome to first div!
+        Welcome to first div! Welcome to first div! Welcome to first div!
+        Welcome to first div! Welcome to first div! Welcome to first div!
+        Welcome to first div! Welcome to first div! Welcome to first div!
+        Welcome to first div! Welcome to first div! Welcome to first div!
+        Welcome to first div! Welcome to first div! Welcome to first div!
+       
+      </div>
+      </h1>
+     
   </div>
 </div>
+{% endblock %}

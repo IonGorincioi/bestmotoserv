@@ -1,70 +1,53 @@
 /* *******  PAGE CONTENT STYLE ******* */
+/* .basepage {
+  margin-top: 70px;
+} */
 
-.basepage {
-  margin-top: 60px;
-}
-
+/* *******  HEADER STYLE ******* */
 .header {
   text-align: center;
   float: left;
-  background-color: #23383b;
-  color: #fff;
+  background-color: #e6e6e6;
+  padding-bottom: 50px;
+  border-bottom: 3px solid #000;
+  font-weight: bolder;
+  color: #000;
   width: 100%;
-  height: 55px;
-  padding-top: 1px;
+  height: 65px;
   position: relative;
-  font-family: Nav_bar_font;
+  /* font-family: Nav_bar_font; */
 }
 
-/* *******  HEADER STYLE ******* */
 .header h1 {
   text-align: center;
-  text-shadow: 4px 3px 2px #666bbb;
+  text-shadow: 4px 3px 2px #888;
 }
 
 /* *******  NAVIGATION BAR STYLE ******* */
-#navigation {
-  width: 100%;
-  height: 60px;
-  background-color: #9ec6cd;
-  font-family: Nav_bar_font;
+
+.navigation a:active {
+  color: #ffffff;
 }
 
-ul#navigation_links li {
-  display: inline;
-  list-style: none;
-  height: 60px;
+/* .navigation a:visited {
+  color: #ffffff;
+} */
+
+.navigation li:hover {
   font-weight: bold;
-  font-size: 1rem;
-  color: #000;
-  padding: 20px 10px;
 }
 
-ul#navigation_links li a {
+ul.navigation li a {
   text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-#navigation li:hover {
-  text-decoration: none;
-  background: #c3e7f5;
-}
-
-#navigation a:visited {
-  color: blue;
-}
-
-ul#navigation_links li.dropdownIcon {
-  display: none;
+  /* text-align: center; */
 }
 
 /* *******  FOOTER STYLE ******* */
 footer {
   float: left;
-  position: absolute;
+  position: absolute-relative;
   width: 100%;
-  height: 70px;
+  height: auto;
   padding-top: 20px;
   background-color: #333333;
   color: white;
