@@ -26,5 +26,12 @@ def login():
 @app.route('/register')
 def register():
     return render_template('register.html')
+
+
+@app.route('/accidentAdvices')
+def accidentAdvices():
+    return render_template('accidentAdvices.html')
+
+
 if __name__=="__main__":
     app.run(debug=True)

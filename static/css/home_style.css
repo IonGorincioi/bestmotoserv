@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.homepage {
+  font-size: 50px;
+  height: 100%;
+}
+
+.homeMainSection {
+  float: left;
+  /* border: 2px solid gray; */
+  width: 70%;
+}
+
+.homeAssideSection {
+  /* border: 2px solid brown; */
+  text-align: center;
+  float: right;
+  background-color: white;
+  margin: 10px 10px 10px 10px;
+  width: 28%;
+}
+
+.mainContent {
+  /* border: 2px solid red; */
+  margin: 10px;
+}
+
+.mainImage {
+  background-image: url('../images/homepageImage.jpg');
+  color: #ffffff;
+  height: 30rem;
+  background-size: 100%;
+  margin: 10px;
+}
+
+.bookservice {
+  width: 70%;
+}
+
+.homepageButton {
+  margin: 50px 50px;
+}

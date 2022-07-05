@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- BOOTSTRAP LINK -->
-
+    <!-- LOCAL CSS FILES -->
     <link rel="stylesheet" href="../static/css/base_style.css" />
+    <link rel="stylesheet" href="../static/css/home_style.css" />
+
+    <!-- BOOTSTRAP LINK -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -16,6 +18,11 @@
     />
 
     <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -68,8 +75,15 @@
       </ul>
     </div>
 
+    <!-- HEADER -->
     <div class="header">{% block header %}{% endblock %}</div>
 
-    <div class="jumbotron">{% block content %} {% endblock %}</div>
+    <!-- BODY CONTENT -->
+    <div class="basepage">{% block content %} {% endblock %}</div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Copyright &copy; 2022 Ion Gorincioi</p>
+    </footer>
   </body>
 </html>
