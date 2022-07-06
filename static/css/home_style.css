@@ -14,13 +14,13 @@
   width: 100%;
 }
 
-.homeAssideSection {
+.assideSection {
   /* border: 2px solid brown; */
   text-align: center;
   float: right;
   background-color: white;
   margin: 10px;
-  width: 30%;
+  width: 25%;
   height: 30rem;
 }
 
@@ -33,7 +33,7 @@
 .mainImage {
   float: left;
   width: 65%;
-  background-image: url('../images/homepageImage.jpg');
+  background-image: url('../images/homepage_images/homepageImage.jpg');
   border-radius: 20px;
   height: 30rem;
   background-size: 100%;
@@ -45,5 +45,5 @@
 }
 
 .homepageButton {
-  margin: 50px 50px;
+  margin: 50px 30px 50px 30px;
 }

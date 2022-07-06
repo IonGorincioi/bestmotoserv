@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+.aboutpage h1 {
+  margin: 5px 20px 5px 20px;
+}
+
+.aboutpage {
+  float: left;
+  /* border: 2px solid black; */
+  width: 70%;
+}
+
+.aboutMainSection {
+  float: left;
+  /* border: 2px solid green; */
+  width: 100%;
+}
+
+.aboutInfo {
+  float: left;
+  width: 40%;
+  /* border: 2px solid blue; */
+  margin-left: 20px;
+}
+
+.aboutGIF {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 56%;
+  /* border: 2px solid red; */
+}
+
+.assideSection {
+  /* border: 2px solid brown; */
+  text-align: center;
+  float: right;
+  background-color: white;
+  margin: 20px;
+  width: 25%;
+  height: 30rem;
+}
+
+img {
+  width: 630px;
+  height: 450px;
+  border-radius: 5%;
+}
+
+.bookservice {
+  width: 70%;
+}
+
+.homepageButton {
+  margin: 50px 30px 50px 30px;
+}

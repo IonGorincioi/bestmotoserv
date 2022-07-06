@@ -10,6 +10,71 @@
 
 <!-- PAGE CONTENT -->
 {% block content %}
+<div class="aboutpage">
+  <h1>Hey! You are in "About us" page</h1>
 
-<h1>Hey! You are in "About us" page</h1>
+  <div class="aboutMainSection">
+    <div class="aboutInfo">
+      <h2>Info section Info section Info section Info section</h2>
+      <h2>Info section Info section Info section Info section</h2>
+      <h2>Info section</h2>
+
+      <h2>Info section</h2>
+      <h2>Info section</h2>
+      <h2>Info section</h2>
+      <h2>Info section</h2>
+      <h2>Info section</h2>
+      <h2>Info section</h2>
+      <h2>Info section</h2>
+    </div>
+    <div class="aboutGIF">
+      <img src="../static/images/aboutpage_images/" id="slideimages" />
+    </div>
+  </div>
+</div>
+
+<div class="assideSection">
+  <div class="homepageButton">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      Book a car service
+    </button>
+  </div>
+
+  <div class="homepageButton">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      Contact us for advice
+    </button>
+  </div>
+
+  <div class="dropdown homepageButton">
+    <button
+      class="btn btn-primary dropdown-toggle bookservice btn-lg"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Useful tips
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li>
+        <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+          >Accident advices</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+          >Car maintainance tips</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script src="../static/JS/slidesFunction.js"></script>
 {% endblock %}
+
+<!--  -->

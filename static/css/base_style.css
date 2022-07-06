@@ -45,7 +45,7 @@ ul.navigation li a {
 /* *******  FOOTER STYLE ******* */
 footer {
   float: left;
-  position: absolute-relative;
+  position: relative;
   width: 100%;
   height: auto;
   padding-top: 20px;
