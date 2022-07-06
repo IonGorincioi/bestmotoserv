@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../static/css/home_style.css" />
     <link rel="stylesheet" href="../static/css/about_style.css" />
     <link rel="stylesheet" href="../static/css/pricing_style.css" />
+    <link rel="stylesheet" href="../static/css/contacts_style.css" />
 
     <!-- BOOTSTRAP LINK -->
     <link
@@ -48,7 +49,12 @@
     <!-- SET UP THE NAVIGATION BAR -->
     <nav class="navbar navbar-expand-lg" style="background-color: #222222">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{url_for('home')}}">Garage</a>
+        <a
+          class="navbar-brand"
+          href="{{url_for('home')}}"
+          style="font-size: x-large"
+          >Garage</a
+        >
 
         <button
           class="navbar-toggler"
@@ -62,34 +68,34 @@
 
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul
-            class="navigation navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            class="navigation navbar-nav me-auto my-2 my-lg-2 navbar-nav-scroll"
             style="--bs-scroll-height: 100px"
           >
-            <li class="nav-link">
+            <li class="nav-link" style="font-size: large">
               <a href="{{url_for('home')}}">Home</a>
             </li>
 
-            <li class="nav-link">
+            <li class="nav-link" style="font-size: large">
               <a href="{{url_for('about')}}">About</a>
             </li>
 
-            <li class="nav-link">
+            <li class="nav-link" style="font-size: large">
               <a href="{{url_for('pricing')}}">Pricing</a>
             </li>
 
-            <li class="nav-link">
+            <li class="nav-link" style="font-size: large">
               <a href="{{url_for('login')}}">Login</a>
             </li>
 
-            <li class="nav-link">
+            <li class="nav-link" style="font-size: large">
               <a href="{{url_for('register')}}">Register</a>
             </li>
 
-            <li class="nav-link">
+            <li class="nav-link" style="font-size: large">
               <a href="{{url_for('contacts')}}">Contacts</a>
             </li>
 
-            <li class="nav-link">
+            <li class="nav-link" style="font-size: large">
               <a href="#">Logout</a>
             </li>
           </ul>
