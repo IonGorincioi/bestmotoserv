@@ -1,0 +1,42 @@
+.services {
+  /* border: 2px solid brown; */
+  background-color: #e6e6e6;
+  float: left;
+  text-align: center;
+  width: 31%;
+  height: auto;
+  margin: 15px 15px 50px 15px;
+  padding: 20px;
+}
+
+.serviceType {
+  /* border: 1px solid gray; */
+  margin-left: 10%;
+  padding-top: 10px;
+  width: 80%;
+  height: 65px;
+  color: white;
+}
+
+.picture {
+  /* border: 2px solid red; */
+  margin: 10px 20% 0px 20%;
+  height: 150px;
+  width: 60%;
+}
+.picture img {
+  height: 150px;
+  width: 100%;
+}
+
+.serviceInfo {
+  /* border: 2px solid green; */
+  text-align: left;
+  margin: 5px;
+  height: 150px;
+  width: 90%;
+}
+
+.bookService {
+  text-align: center;
+}
