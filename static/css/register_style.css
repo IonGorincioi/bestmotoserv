@@ -1,0 +1,27 @@
+.mainRegisterSection {
+  /* border: 2px solid black; */
+  margin: 5px;
+  /* text-align: center; */
+}
+.registerHeading {
+  /* border: 2px solid red; */
+  margin: 20px;
+}
+.registerForm {
+  /* border: 2px solid blue; */
+  /* text-align: center; */
+  background-color: #f2f2f2;
+  width: 60%;
+  padding: 30px 50px 50px 50px;
+  margin-left: 250px;
+  height: auto;
+}
+
+.register-btn {
+  margin-top: 30px;
+}
+
+.button {
+  width: 200px;
+  margin-left: 20px;
+}
