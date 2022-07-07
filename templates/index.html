@@ -20,13 +20,15 @@
      
       <div class="homepageButton">
         <button type="button" class="btn btn-primary btn-lg bookservice">
-          Book a car service
+          <a class="dropdown-item" href="{{url_for('bookService')}}"
+            >Book a car service</a
+          >
         </button>
       </div>
 
       <div class="homepageButton">
         <button type="button" class="btn btn-primary btn-lg bookservice">
-          Contact us for advice
+          <a class="dropdown-item" href="{{url_for('helpPage')}}">Contact us for advice</a>
         </button>
       </div>
 
@@ -47,12 +49,12 @@
             >
           </li>
           <li>
-            <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+            <a class="dropdown-item" href="{{url_for('tips')}}"
               >Car maintainance tips</a
             >
           </li>
           <li>
-            <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"></a>
+            <a class="dropdown-item" href="{{url_for('tips')}}"></a>
           </li>
         </ul>
       </div>

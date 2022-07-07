@@ -1,3 +1,4 @@
+import re
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -31,6 +32,21 @@ def register():
 @app.route('/accidentAdvices')
 def accidentAdvices():
     return render_template('accidentAdvices.html')
+
+
+@app.route('/maintenanceTips')
+def tips():
+    return render_template('carmaintenancetips.html')
+
+
+@app.route('/bookService')
+def bookService():
+    return render_template('bookservice.html')
+
+
+@app.route('/help')
+def helpPage():
+    return render_template('askforhelp.html')
 
 
 if __name__=="__main__":
