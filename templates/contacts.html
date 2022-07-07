@@ -13,9 +13,154 @@
 
 <div class="contactPage">
   <h1>Hey! You are in "Contact us" page</h1>
-  <div class="quoteForm"></div>
-  <div class="locationMap"></div>
-  <div class="contacts"></div>
+
+  <!-- QUOTE REQUIRE FORM SECTION -->
+  <div class="quoteForm">
+    <h5>fill in the form to request a quote</h5>
+
+    <div class="formFields">
+      <form id="form" method="get">
+        <div class="form_control">
+          <input
+            type="text"
+            class="field"
+            name="fullname"
+            id="fullname"
+            placeholder="Name"
+          />
+        </div>
+        <br />
+
+        <div class="form_control">
+          <input
+            class="field"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email address"
+          />
+        </div>
+        <br />
+
+        <div class="form_control">
+          <input
+            class="field"
+            type="phone"
+            name="phone"
+            id="phone"
+            placeholder="Phone number"
+          />
+        </div>
+        <br />
+
+        <div class="form_control">
+          <textarea
+            name="description"
+            class="field description"
+            placeholder="Your message"
+          ></textarea
+          ><br />
+        </div>
+      </form>
+    </div>
+    <div class="send-btn">
+      <input class="btn-primary button" type="submit" value="Submit" /><br />
+    </div>
+  </div>
+
+  <!-- MAP LOCATION SECTION  -->
+  <div class="locationMap">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2383.114175375177!2d-6.296250048596734!3d53.32330897987586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe4bbb4a198b53a67!2zNTPCsDE5JzIzLjkiTiA2wrAxNyczOC42Ilc!5e0!3m2!1sro!2sie!4v1657197598553!5m2!1sro!2sie"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <!-- CONTACT INFORMATION SECTION -->
+  <div class="contacts">
+    <div class="address">
+      <!-- <h5 class="title">Address:</h5> -->
+      <table>
+        <th class="title">Address:</th>
+        <tr>
+          <td>Sundrive Rd.</td>
+        </tr>
+        <tr>
+          <td>Crumlin,</td>
+        </tr>
+        <tr>
+          <td>Co. Dublin</td>
+        </tr>
+      </table>
+    </div>
+
+    <hr />
+
+    <div class="contact_details">
+      <table>
+        <th class="title" colspan="2">Contact us:</th>
+        <tr>
+          <td class="strong">Phone:</td>
+          <td>+353 1 543 0000</td>
+        </tr>
+        <tr>
+          <td class="strong">Mob. :</td>
+          <td>+353 893 740 000</td>
+        </tr>
+        <tr>
+          <td class="strong">Email:</td>
+          <td>service&#64;motor.com</td>
+        </tr>
+      </table>
+    </div>
+
+    <hr />
+
+    <div id="opening-hours">
+      <table>
+        <th class="title" colspan="2">Opening hours:</th>
+        <tr>
+          <td class="strong">MON:</td>
+          <td>&nbsp;8:00 a.m. - 5:00 p.m.</td>
+        </tr>
+
+        <tr>
+          <td class="strong">TUE:</td>
+          <td>&nbsp;8:00 a.m. - 5:00 p.m.</td>
+        </tr>
+
+        <tr>
+          <td class="strong">WED:</td>
+          <td>&nbsp;8:00 a.m. - 5:00 p.m.</td>
+        </tr>
+
+        <tr>
+          <td class="strong">THU:</td>
+          <td>&nbsp;8:00 a.m. - 5:00 p.m.</td>
+        </tr>
+
+        <tr>
+          <td class="strong">FRI:</td>
+          <td>&nbsp;8:00 a.m. - 5:00 p.m.</td>
+        </tr>
+
+        <tr>
+          <td class="strong">SAT:</td>
+          <td>&nbsp;8:00 a.m. - 3:30 p.m.</td>
+        </tr>
+
+        <tr>
+          <td class="strong">SUN:</td>
+          <td>&nbsp;Closed</td>
+        </tr>
+
+        <tr colspan="2"></tr>
+      </table>
+      <br />
+    </div>
+  </div>
 </div>
 
 {% endblock %}

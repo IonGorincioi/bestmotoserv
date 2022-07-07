@@ -42,7 +42,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}<!-- -->{% endblock %}</title>
   </head>
 
   <body>
@@ -104,17 +104,14 @@
     </nav>
 
     <!-- HEADER -->
-    <div class="header">{% block header %}{% endblock %}</div>
+    <div class="header">{% block header %} {% endblock %}</div>
 
     <!-- BODY CONTENT -->
     <div>{% block content %} {% endblock %}</div>
 
-    <div>{% block asside %} {% endblock %}</div>
-
     <!-- FOOTER -->
     <footer>
       <p>Copyright &copy; 2022</p>
-      <p>Ion Gorincioi</p>
     </footer>
   </body>
 </html>
