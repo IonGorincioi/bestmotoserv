@@ -10,5 +10,78 @@
 
 <!-- PAGE CONTENT -->
 {% block content %}
-<h1>Book services</h1>
+
+<div class="mainBookingSection">
+  <div class="bookHeading">
+    <h1>Book services</h1>
+  </div>
+  <div class="bookingForm">
+    <form>
+      <div class="mb-3 carMake">
+        <label for="exampleInput1" class="form-label"
+          >Vehicle manufacturer</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="exampleCarMake1"
+          aria-describedby="CarMakeHelp"
+        />
+      </div>
+
+      <div class="mb-3 carModel">
+        <label for="exampleCarModel1" class="form-label">Model</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleCarModel1"
+          aria-describedby="carModelHelp"
+        />
+      </div>
+
+      <div class="mb-3 year">
+        <label for="exampleRegYear1" class="form-label">Year</label>
+        <input
+          type="number"
+          min="1950"
+          max="2099"
+          step="1"
+          value="2022"
+          class="form-control"
+          id="exampleRegYear1"
+          aria-describedby="regYearHelp"
+        />
+      </div>
+
+      <div class="mb-3 regNumber">
+        <label for="exampleInputRegNumber1" class="form-label"
+          >Registration number</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputRegNumber1"
+          aria-describedby="regNumberHelp"
+        />
+      </div>
+      <div class="mb-3 serviceTypes">
+        <label for="exampleInputServiceType1" class="form-label"
+          >Select service type</label
+        >
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Choose an option...</option>
+          <option value="1">Basic service</option>
+          <option value="2">Full service</option>
+          <option value="3">Pre-NCT service</option>
+          <option value="3">Tyres service</option>
+        </select>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <div class="booking-btn">
+        <button type="submit" class="btn btn-primary book">Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}

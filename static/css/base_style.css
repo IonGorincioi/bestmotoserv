@@ -29,17 +29,16 @@
   color: #ffffff;
 }
 
-/* .navigation a:visited {
-  color: #ffffff;
-} */
-
 .navigation li:hover {
   font-weight: bold;
 }
 
 ul.navigation li a {
   text-decoration: none;
-  /* text-align: center; */
+}
+
+ul.navigation li a:hover {
+  color: white;
 }
 
 /* *******  FOOTER STYLE ******* */
