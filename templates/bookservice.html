@@ -10,7 +10,6 @@
 
 <!-- PAGE CONTENT -->
 {% block content %}
-
 <div class="mainBookingSection">
   <div class="bookHeading">
     <h1>Book services</h1>
@@ -78,10 +77,64 @@
       </div>
 
       <!-- SUBMIT BUTTON -->
-      <div class="booking-btn">
-        <button type="submit" class="btn btn-primary book">Book</button>
+      <div class="post-btn">
+        <button type="submit" class="btn btn-primary button">Book</button>
       </div>
     </form>
   </div>
 </div>
+{% endblock %}
+<!-- ADD ASSIDE SECTION  -->
+<!-- <div class="assideSection1"> -->
+{% block asside %}
+
+<div class="assideContent">
+  <!--  -->
+  <!-- <div class="assideSection"> -->
+  <div class="homepageButton">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      <a class="dropdown-item" href="{{url_for('bookService')}}"
+        >Book a car service</a
+      >
+    </button>
+  </div>
+
+  <div class="homepageButton">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      <a class="dropdown-item" href="{{url_for('helpPage')}}"
+        >Contact us for advice</a
+      >
+    </button>
+  </div>
+
+  <div class="dropdown homepageButton">
+    <button
+      class="btn btn-primary dropdown-toggle bookservice btn-lg"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Useful tips
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li>
+        <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+          >Accident advices</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('tips')}}"
+          >Car maintainance tips</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('tips')}}"></a>
+      </li>
+    </ul>
+  </div>
+  <!-- </div> -->
+  <!--  -->
+</div>
+
 {% endblock %}

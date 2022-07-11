@@ -8,7 +8,7 @@
 }
 
 /* QUOTE REQUIRE FORM SECTION STYLE */
-.quoteForm {
+.enquiryForm {
   float: left;
   background-color: #e6e6e6;
   border-radius: 2%;
@@ -24,16 +24,6 @@
 
 .form_control {
   width: 100%;
-}
-
-.send-btn {
-  text-align: center;
-  margin: 30px 30px;
-}
-
-.button {
-  width: 100%;
-  border-radius: 10px;
 }
 
 .description {

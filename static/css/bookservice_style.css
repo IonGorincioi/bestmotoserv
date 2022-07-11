@@ -1,7 +1,9 @@
 .mainBookingSection {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   margin: 5px;
   /* text-align: center; */
+  width: 65%;
+  float: left;
 }
 .bookHeading {
   /* border: 2px solid red; */
