@@ -55,13 +55,17 @@ ul.navigation li a:hover {
 
 /* ASSIDE SECTION STYLE */
 .assideContent {
-  padding: 20px 0px 20px 0px;
-  /* border: 2px solid red; */
+  padding: 20px 0px 20px 10px;
+  border: 2px solid red;
   margin: 50px 40px 40px 20px;
   text-align: center;
-  float: right;
+  float: left;
   width: 25%;
-  height: 30rem;
+  /* height: 30rem; */
+}
+
+.assideButton {
+  width: 100%;
 }
 
 /* *******  FOOTER STYLE ******* */

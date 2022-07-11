@@ -1,0 +1,13 @@
+.mainAssistanceSection {
+  margin: 5px;
+  width: 70%;
+  float: left;
+}
+
+.assistanceHeading {
+  text-align: center;
+}
+
+.enquiry {
+  height: 200px;
+}

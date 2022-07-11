@@ -1,15 +1,103 @@
 {% extends 'base.html' %}
 
 <!-- PAGE TITLE -->
-{% block title %} Help page {% endblock %}
+{% block title %} Assistance {% endblock %}
 
 <!-- HEADER -->
 {% block header %}
-<h1>Help page</h1>
+<h1>Helping desk</h1>
 {% endblock %}
 
 <!-- PAGE CONTENT -->
 {% block content %}
-<h1>Do you need any help?</h1>
-<h2>Please ask the question in the form bellow</h2>
+<div class="mainAssistanceSection">
+  <div class="assistanceHeading">
+    <h1>Enquiries</h1>
+    <p>
+      If you need assistance, please fill in the form below and we will contact
+      you as soon an possible.
+    </p>
+  </div>
+  <div class="bookingForm">
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-control" />
+      </div>
+
+      <div class="mb-3 form_control">
+        <label class="form-label">Your email</label>
+        <input class="form-control" type="email" name="email" />
+      </div>
+
+      <div class="mb-3 form_control">
+        <label class="form-label">Phone</label>
+        <input class="form-control" type="phone" name="phone" />
+      </div>
+      <br />
+      <div class="mb-3 form_control">
+        <textarea name="description" class="form-control enquiry">
+ Enter your message</textarea
+        ><br />
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <div class="post-btn">
+        <button type="submit" class="btn btn-primary button">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+<!--  -->
+{% block asside %}
+
+<div class="assideContent">
+  <div class="homepageButton">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      <a class="dropdown-item" href="{{url_for('bookService')}}"
+        >Book a car service</a
+      >
+    </button>
+  </div>
+
+  <div class="homepageButton">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      <a class="dropdown-item" href="{{url_for('helpPage')}}"
+        >Contact us for advice</a
+      >
+    </button>
+  </div>
+
+  <div class="dropdown homepageButton">
+    <button
+      class="btn btn-primary dropdown-toggle bookservice btn-lg"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Useful tips
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li>
+        <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+          >Accident advices</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('tips')}}"
+          >Car maintainance tips</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('tips')}}"></a>
+      </li>
+    </ul>
+  </div>
+  <!-- </div> -->
+  <!--  -->
+</div>
+
 {% endblock %}

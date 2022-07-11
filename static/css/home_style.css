@@ -28,17 +28,19 @@
   margin: 10px 10px 0px 0px;
 }
 
-.bookservice {
-  width: 70%;
+.assideButtons {
+  width: 100%;
+  margin: 50px 30px 50px 0px;
+  text-align: center;
 }
 
-.homepageButton {
+/* .homepageButton {
   margin: 50px 30px 50px 30px;
-}
+} */
 
-.asside {
+/* .asside {
   text-align: center;
   width: 30%;
   float: left;
   border: 2px solid yellow;
-}
+} */
