@@ -10,5 +10,54 @@
 
 <!-- PAGE CONTENT -->
 {% block content %}
-<h1>These are useful tips in case you've ran into an Accident</h1>
+<div class="usefulTips">
+  <h1>These are useful tips in case you've ran into an Accident</h1>
+</div>
+
+<div class="assideContent">
+  <div class="assideButtons">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      <a class="dropdown-item" href="{{url_for('bookService')}}"
+        >Book a car service</a
+      >
+    </button>
+  </div>
+
+  <div class="assideButtons">
+    <button type="button" class="btn btn-primary btn-lg bookservice">
+      <a class="dropdown-item" href="{{url_for('helpPage')}}"
+        >Contact us for advice</a
+      >
+    </button>
+  </div>
+
+  <div class="dropdown assideButtons">
+    <button
+      class="btn btn-primary dropdown-toggle bookservice btn-lg"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Useful tips
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li>
+        <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+          >Accident advices</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('tips')}}"
+          >Car maintainance tips</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{url_for('tips')}}"></a>
+      </li>
+    </ul>
+  </div>
+  <!-- </div> -->
+  <!--  -->
+</div>
 {% endblock %}
