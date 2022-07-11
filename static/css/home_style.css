@@ -1,28 +1,31 @@
 .homepage {
+  border: 5px solid brown;
   font-size: 50px;
   height: 100%;
 }
 
 .homeMainSection {
   float: left;
-  /* border: 2px solid gray; */
-  width: 100%;
+  border: 2px solid blue;
+  width: 70%;
+  padding: 20px 10px 20px 10px;
 }
 
 .mainContent {
   float: left;
-  /* border: 2px solid red; */
+  border: 2px solid red;
   margin: 10px;
 }
 
 .mainImage {
+  border: 2px solid green;
   float: left;
-  width: 65%;
+  width: 100%;
   background-image: url('../images/homepage_images/homepageImage.jpg');
   border-radius: 20px;
   height: 30rem;
   background-size: 100%;
-  margin: 10px;
+  margin: 10px 10px 0px 0px;
 }
 
 .bookservice {
@@ -31,4 +34,11 @@
 
 .homepageButton {
   margin: 50px 30px 50px 30px;
+}
+
+.asside {
+  text-align: center;
+  width: 30%;
+  float: left;
+  border: 2px solid yellow;
 }
