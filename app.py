@@ -13,7 +13,7 @@ app.config['MYSQL_PASSWORD'] = 'Gsandanat.1'
 app.config['MYSQL_DB'] = 'GarageDB'
  
 
-mysql = MySQL(app)
+db = MySQL(app)
 
 ##########################################
 
@@ -67,14 +67,14 @@ def bookService():
         Reg_number = carDetails['Reg_number']
 
         #   Creating a connection cursor
-        cursor = mysql.connection.cursor()
+        cursor = db.connection.cursor()
 
         #   Executing SQL Statements
         cursor.execute("INSERT INTO vehicle_service (Manufacturer, Model, RegYear, Reg_number)\
                         VALUES (%s, %s, %s, %s)", (Manufacturer, Model, RegYear, Reg_number))
 
         #   Saving the actions performed on the DB
-        mysql.connection.commit()
+        db.connection.commit()
         
         #   Closing the cursor
         cursor.close()
