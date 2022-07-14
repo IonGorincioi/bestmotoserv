@@ -1,7 +1,21 @@
-import re
-from flask import Flask, render_template
+import sqlite3, os
+from flask import Flask, render_template, request
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
+
+##########################################
+#####   DATABASE CONFIGURATIONS    #######
+##########################################
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'Gsandanat.1'
+app.config['MYSQL_DB'] = 'GarageDB'
+ 
+
+mysql = MySQL(app)
+
+##########################################
 
 @app.route('/')
 def home():
@@ -23,8 +37,10 @@ def pricing():
 def login():
     return render_template('login.html')
 
-
-@app.route('/register')
+#########################################
+########### REGISTRTATION PAGE ##########
+#########################################
+@app.route('/register', methods = ['GET', 'POST'])
 def register():
     return render_template('register.html')
 
@@ -38,9 +54,31 @@ def accidentAdvices():
 def tips():
     return render_template('carmaintenancetips.html')
 
-
-@app.route('/bookService')
+#######################################################
+###########   BOOK SERVICE PAGE   #####################
+#######################################################
+@app.route('/bookService', methods = ['GET', 'POST'])
 def bookService():
+    if request.method == 'POST':
+        carDetails  = request.form
+        Manufacturer = carDetails['Manufacturer']
+        Model = carDetails['Model']
+        RegYear = carDetails['RegYear']
+        Reg_number = carDetails['Reg_number']
+
+        #   Creating a connection cursor
+        cursor = mysql.connection.cursor()
+
+        #   Executing SQL Statements
+        cursor.execute("INSERT INTO vehicle_service (Manufacturer, Model, RegYear, Reg_number)\
+                        VALUES (%s, %s, %s, %s)", (Manufacturer, Model, RegYear, Reg_number))
+
+        #   Saving the actions performed on the DB
+        mysql.connection.commit()
+        
+        #   Closing the cursor
+        cursor.close()
+
     return render_template('bookservice.html')
 
 

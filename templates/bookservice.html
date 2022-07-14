@@ -10,18 +10,21 @@
 
 <!-- PAGE CONTENT -->
 {% block content %}
+
 <div class="mainBookingSection">
   <div class="bookHeading">
     <h1>Book services</h1>
   </div>
   <div class="bookingForm">
-    <form>
+    <!-- form  -->
+    <form method="POST" action="/bookService">
       <div class="mb-3 carMake">
         <label for="exampleInput1" class="form-label"
           >Vehicle manufacturer</label
         >
         <input
           type="text"
+          name="Manufacturer"
           class="form-control"
           id="exampleCarMake1"
           aria-describedby="CarMakeHelp"
@@ -29,9 +32,10 @@
       </div>
 
       <div class="mb-3 carModel">
-        <label for="exampleCarModel1" class="form-label">Model</label>
+        <label class="form-label">Model</label>
         <input
           type="text"
+          name="Model"
           class="form-control"
           id="exampleCarModel1"
           aria-describedby="carModelHelp"
@@ -42,6 +46,7 @@
         <label for="exampleRegYear1" class="form-label">Year</label>
         <input
           type="number"
+          name="RegYear"
           min="1950"
           max="2099"
           step="1"
@@ -58,6 +63,7 @@
         >
         <input
           type="text"
+          name="Reg_number"
           class="form-control"
           id="exampleInputRegNumber1"
           aria-describedby="regNumberHelp"
