@@ -70,7 +70,7 @@ def bookService():
         cursor = db.connection.cursor()
 
         #   Executing SQL Statements
-        cursor.execute("INSERT INTO vehicle_service (Manufacturer, Model, RegYear, Reg_number)\
+        cursor.execute("INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number)\
                         VALUES (%s, %s, %s, %s)", (Manufacturer, Model, RegYear, Reg_number))
 
         #   Saving the actions performed on the DB
