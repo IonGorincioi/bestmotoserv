@@ -128,20 +128,26 @@
             </li>
 
             <li class="nav-link" style="font-size: large">
+              <a href="{{url_for('contacts')}}">Contacts</a>
+            </li>
+
+            <!--  -->
+            {% if not user %}
+            <li class="nav-link" style="font-size: large">
               <a href="{{url_for('login')}}">Login</a>
             </li>
 
             <li class="nav-link" style="font-size: large">
               <a href="{{url_for('register')}}">Register</a>
             </li>
+            {% endif %}
 
+            <!--  -->
+            {% if user %}
             <li class="nav-link" style="font-size: large">
-              <a href="{{url_for('contacts')}}">Contacts</a>
+              <a href="{{ url_for('logout') }}">Logout</a>
             </li>
-
-            <li class="nav-link" style="font-size: large">
-              <a href="#">Logout</a>
-            </li>
+            {% endif %}
           </ul>
         </div>
       </div>

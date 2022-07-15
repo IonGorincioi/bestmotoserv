@@ -15,10 +15,14 @@
     <h2>Please fill in the form bellow to create an account.</h2>
   </div>
   <div class="registerForm">
-    <form>
+    <!--  -->
+
+    <!--  -->
+    <form method="POST" action="{{ url_for('register') }}">
       <div class="mb-3 firstName">
         <label for="exampleInput1" class="form-label">First name</label>
         <input
+          name="FName"
           type="text"
           class="form-control"
           id="exampleFirstName1"
@@ -29,6 +33,7 @@
       <div class="mb-3 lastName">
         <label for="exampleLastName1" class="form-label">Last name</label>
         <input
+          name="LName"
           type="text"
           class="form-control"
           id="exampleLastName1"
@@ -39,6 +44,7 @@
       <div class="mb-3 phoneNumber">
         <label for="examplePhoneNumber1" class="form-label">Phone number</label>
         <input
+          name="phone"
           type="phone"
           class="form-control"
           id="examplePhoneNumber1"
@@ -49,6 +55,7 @@
       <div class="mb-3 emailAddress">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
+          name="email"
           type="email"
           class="form-control"
           id="exampleInputEmail1"
@@ -58,6 +65,7 @@
       <div class="mb-3 password">
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input
+          name="password"
           type="password"
           class="form-control"
           id="exampleInputPassword1"
@@ -69,6 +77,7 @@
           >Confirm Password</label
         >
         <input
+          name="conf_password"
           type="password"
           class="form-control"
           id="exampleInputConfirmPassword1"
