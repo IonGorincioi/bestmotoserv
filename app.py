@@ -1,6 +1,7 @@
 
 import email
 import sqlite3, os
+from tkinter.messagebox import NO
 from flask import Flask, redirect, render_template, request, url_for, session, redirect, flash
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash , check_password_hash
@@ -66,31 +67,41 @@ def pricing():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     user = current_user()
+    error = None
     if request.method == 'POST':
 
-        username = request.form['email']
-        password = request.form['password']
+        username = request.form.get('email')
+        password = request.form.get('password')
 
         #   Creating a connection cursor
         user_cur = db.connection.cursor()
 
          #   select the user from the database
-        user_cur.execute("SELECT OwnerID, Email, Pass FROM car_owner WHERE Email= %s", [username])
+        user_cur.execute("SELECT * FROM car_owner WHERE Email= %s", [username])
 
         #   fetch the user
         logged_user = user_cur.fetchone()
 
-        #   check if the password entered match with the password in the database
-        if check_password_hash(logged_user[2], password):
+        #   check if the user exists in database
+        if logged_user:
 
-            #   create a session
-            session['user'] = logged_user[0]    #   keeps the user by ID in the session
-            #flash("Hello. You've just been logged in!")
-            return redirect(url_for('home'))
+            #   check if the password entered match with the password in the database
+            if check_password_hash(logged_user[-2], password):
+
+                #   create a session
+                session['user'] = logged_user[0]    #   keeps the user by ID in the session
+
+                flash(f"Hello {logged_user[1]}. You've just been logged in!", category='success')
+                return redirect(url_for('home'))
+            else:
+                error = "The password is incorrect"
+                flash("Something went wrong! Make sure you are using the correct username and password.", category='error')
+              
         else:
-            return redirect(url_for('login'))
+            error = "Username is incorect"
+     
 
-    return render_template('login.html', user = user)
+    return render_template('login.html', user = user, error = error)
 
 
 #######################################################
@@ -100,27 +111,41 @@ def login():
 def register():
     user = current_user()
     if request.method == 'POST':
-        FName = request.form['FName']
-        LName = request.form['LName']
-        email = request.form['email']
-        phone = request.form['phone']
-        hashed_pass = generate_password_hash(request.form['password'], method='sha256')
-        conf_hashed_pass = generate_password_hash(request.form['conf_password'], method='sha256')
+        FName = request.form.get('FName')
+        LName = request.form.get('LName')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        hashed_pass = generate_password_hash(request.form.get('password'), method='sha256')
+        conf_hashed_pass = generate_password_hash(request.form.get('conf_password'), method='sha256')
 
-        #   Creating a connection cursor
-        user_cur = db.connection.cursor()
+        #   Check the credentials rules
+    
+        if len(request.form.get('password')) < 7:
+            flash("Password must be at least 7 charactaers", category = 'error')
 
-        #   Executing SQL Statements
-        user_cur.execute("INSERT INTO car_owner (FName, LName, Email, Tel, Pass, Conf_pass)\
-                        VALUES (%s, %s, %s, %s, %s, %s)", (FName, LName, email, phone, hashed_pass, conf_hashed_pass))
+        elif request.form.get('password') != request.form.get('conf_password'):
+            flash("Passwords do not match", category = 'error')
 
-        #   Saving the actions performed on the DB
-        db.connection.commit()
-        
-        #   Closing the cursor
-        user_cur.close()
+        else:
 
-        return redirect(url_for('login'))
+            #   Creating a connection cursor
+            user_cur = db.connection.cursor()
+
+            #   Executing SQL Statements
+            user_cur.execute("INSERT INTO car_owner (FName, LName, Email, Tel, Pass, Conf_pass)\
+                            VALUES (%s, %s, %s, %s, %s, %s)", (FName, LName, email, phone, hashed_pass, conf_hashed_pass))
+
+            #   Saving the actions performed on the DB
+            db.connection.commit()
+            
+            #   Closing the cursor
+            user_cur.close()
+
+            session['user'] = FName
+
+            flash(f"Hello {FName}. Your account has been created successfuly. Please log in to your account.", category = 'success')
+
+            return redirect(url_for('login'))
 
 
     return render_template('register.html', user = user)
@@ -174,8 +199,9 @@ def helpPage():
 
 @app.route('/logout')
 def logout():
-
     session.pop('user', None)
+
+    flash("You have been logged out. We are waiting for you again.", category="success")
     return redirect(url_for('home'))
 
 

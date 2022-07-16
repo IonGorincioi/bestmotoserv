@@ -10,6 +10,7 @@
 
 <!-- PAGE CONTENT -->
 {% block content %}
+
 <div class="mainLoginSection">
   <div class="heading">
     <h1>You are in "Login" page</h1>
@@ -40,6 +41,11 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Remember me</label>
       </div>
+      {% if error %}
+      <small style="color: red; font-size: 14px; text-align: center"
+        >{{ error }}</small
+      >
+      {% endif %}
       <div class="post-btn">
         <button type="submit" class="button btn btn-primary">Sign in</button>
       </div>
