@@ -1,6 +1,7 @@
 
+import email
 import sqlite3, os
-from flask import Flask, redirect, render_template, request, url_for, session, redirect
+from flask import Flask, redirect, render_template, request, url_for, session, redirect, flash
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash , check_password_hash
 
@@ -22,27 +23,41 @@ app.config['MYSQL_DB'] = 'GarageDB'
 
 db = MySQL(app)
 
-##########################################
+##################################################################
+###### FUNCTION THAT HOLD THE CURRENT USER IN THE SESSION ########
+##################################################################
+def current_user():
+    
+    logged_user = None
+    
+    if 'user' in session:
+        user = session['user']
 
+        user_cur = db.connection.cursor()
+        user_cur.execute("SELECT * FROM car_owner WHERE OwnerID = %s", [user])
+        logged_user = user_cur.fetchone()
+
+    return logged_user
 
 @app.route('/')
 def home():
-    user = None
-    if 'user' in session:
-        user = session['user']
+    user = current_user()
     return render_template("index.html", user = user)
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    user = current_user()
+    return render_template('about.html', user = user)
 
 @app.route('/contacts')
 def contacts():
-    return render_template('contacts.html')
+    user = current_user()
+    return render_template('contacts.html', user = user)
 
 @app.route('/pricing')
 def pricing():
-    return render_template('pricing.html')
+    user = current_user()
+    return render_template('pricing.html', user = user)
 
 
 #######################################################
@@ -50,6 +65,7 @@ def pricing():
 #######################################################
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    user = current_user()
     if request.method == 'POST':
 
         username = request.form['email']
@@ -68,13 +84,13 @@ def login():
         if check_password_hash(logged_user[2], password):
 
             #   create a session
-            session['user'] = logged_user[0]
-
+            session['user'] = logged_user[0]    #   keeps the user by ID in the session
+            #flash("Hello. You've just been logged in!")
             return redirect(url_for('home'))
         else:
-            return f'<h1>The password is wrong</h1>'
+            return redirect(url_for('login'))
 
-    return render_template('login.html')
+    return render_template('login.html', user = user)
 
 
 #######################################################
@@ -82,6 +98,7 @@ def login():
 #######################################################
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
+    user = current_user()
     if request.method == 'POST':
         FName = request.form['FName']
         LName = request.form['LName']
@@ -106,24 +123,27 @@ def register():
         return redirect(url_for('login'))
 
 
-    return render_template('register.html')
+    return render_template('register.html', user = user)
 
 ######################################################################
 
 @app.route('/accidentAdvices')
 def accidentAdvices():
-    return render_template('accidentAdvices.html')
+    user = current_user()
+    return render_template('accidentAdvices.html', user = user)
 
 
 @app.route('/maintenanceTips')
 def tips():
-    return render_template('carmaintenancetips.html')
+    user = current_user()
+    return render_template('carmaintenancetips.html', user = user)
 
 #######################################################
 #################  BOOK SERVICE ROUTE  ################
 #######################################################
 @app.route('/bookService', methods = ['GET', 'POST'])
 def bookService():
+    user = current_user()
     if request.method == 'POST':
         carDetails  = request.form
         Manufacturer = carDetails['Manufacturer']
@@ -144,15 +164,17 @@ def bookService():
         #   Closing the cursor
         cursor.close()
 
-    return render_template('bookservice.html')
+    return render_template('bookservice.html', user = user)
 
 
 @app.route('/help')
 def helpPage():
-    return render_template('askforhelp.html')
+    user = current_user()
+    return render_template('askforhelp.html', user = user)
 
 @app.route('/logout')
 def logout():
+
     session.pop('user', None)
     return redirect(url_for('home'))
 
