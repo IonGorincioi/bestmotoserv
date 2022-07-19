@@ -74,9 +74,10 @@
         <a
           class="navbar-brand"
           href="{{url_for('home')}}"
-          style="font-size: xx-large; color: whitesmoke; font-weight: bold"
-          >Garage</a
+          style="color: whitesmoke; font-weight: bold"
         >
+          <img src="../static/images/logo.png" />
+        </a>
 
         <button
           class="navbar-toggler"
@@ -94,36 +95,36 @@
             class="navigation navbar-nav me-auto my-2 my-lg-2 navbar-nav-scroll"
             style="--bs-scroll-height: 100px"
           >
-            <li class="nav-link" style="font-size: large">
+            <li class="nav-link" style="font-size: x-large">
               <a href="{{url_for('home')}}">Home</a>
             </li>
 
-            <li class="nav-link" style="font-size: large">
+            <li class="nav-link" style="font-size: x-large">
               <a href="{{url_for('about')}}">About us</a>
             </li>
 
-            <li class="nav-link" style="font-size: large">
+            <li class="nav-link" style="font-size: x-large">
               <a href="{{url_for('pricing')}}">Pricing</a>
             </li>
 
-            <li class="nav-link" style="font-size: large">
+            <li class="nav-link" style="font-size: x-large">
               <a href="{{url_for('contacts')}}">Contacts</a>
             </li>
 
             <!--  -->
             {% if not user %}
-            <li class="nav-link" style="font-size: large">
+            <li class="nav-link" style="font-size: x-large">
               <a href="{{url_for('login')}}">Login</a>
             </li>
 
-            <li class="nav-link" style="font-size: large">
+            <li class="nav-link" style="font-size: x-large">
               <a href="{{url_for('register')}}">Register</a>
             </li>
             {% endif %}
 
             <!--  -->
             {% if user %}
-            <li class="nav-link" style="font-size: large">
+            <li class="nav-link" style="font-size: x-large">
               <a href="{{ url_for('logout') }}">Logout</a>
             </li>
             {% endif %}

@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+.navbar-brand img {
+  width: 140px;
+  height: 70px;
+}
+
 /* *******  HEADER STYLE ******* */
 .header {
   text-align: center;

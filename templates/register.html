@@ -15,22 +15,19 @@
     <h2>Please fill in the form bellow to create an account.</h2>
   </div>
   <div class="registerForm">
-    <!--  -->
-
-    <!--  -->
-    <form method="POST" action="{{ url_for('register') }}">
-      <div class="mb-3 firstName">
-        <label for="exampleInput1" class="form-label">First name</label>
-        <input
-          name="FName"
-          type="text"
-          class="form-control"
-          id="exampleFirstName1"
-          aria-describedby="FirstNameHelp"
-        />
+    <form
+      method="POST"
+      action="{{ url_for('register') }}"
+      class="regform"
+      id="regform"
+    >
+      <div class="mb-3 firstName formField">
+        <label class="form-label">First name</label>
+        <input name="FName" type="text" class="form-control" id="FName" />
+        <small>Error message</small>
       </div>
-
-      <div class="mb-3 lastName">
+      <br />
+      <div class="mb-3 lastName formField">
         <label for="exampleLastName1" class="form-label">Last name</label>
         <input
           name="LName"
@@ -41,7 +38,7 @@
         />
       </div>
 
-      <div class="mb-3 phoneNumber">
+      <div class="mb-3 phoneNumber formField">
         <label for="examplePhoneNumber1" class="form-label">Phone number</label>
         <input
           name="phone"
@@ -52,7 +49,7 @@
         />
       </div>
 
-      <div class="mb-3 emailAddress">
+      <div class="mb-3 emailAddress formField">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
           name="email"
@@ -62,7 +59,7 @@
           aria-describedby="emailHelp"
         />
       </div>
-      <div class="mb-3 password">
+      <div class="mb-3 password formField">
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input
           name="password"
@@ -72,7 +69,7 @@
         />
       </div>
 
-      <div class="mb-3 confirmPassword">
+      <div class="mb-3 confirmPassword formField">
         <label for="exampleInputPassword1" class="form-label"
           >Confirm Password</label
         >
@@ -90,4 +87,6 @@
     </form>
   </div>
 </div>
+
+<!-- <script src="../static/JS/registerValidationForm.js"></script> -->
 {% endblock %}

@@ -1,17 +1,32 @@
 
-import email
+# import pandas
+import smtplib
 import sqlite3, os
-from tkinter.messagebox import NO
+from flask_mail import Mail, Message
 from flask import Flask, redirect, render_template, request, url_for, session, redirect, flash
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash , check_password_hash
 
 app = Flask(__name__)
 
+mail = Mail(app)
 
 
 #   CONFIGURING THE SECRET KEY 
 app.config['SECRET_KEY']=os.urandom(24)
+
+
+##########################################
+#####   MAIL CONFIGURATION     #######
+########################################## 
+app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'BestMotoServ@outlook.com'
+app.config['MAIL_PASSWORD'] = 'MotoServ'
+
+
 
 ##########################################
 #####   DATABASE CONFIGURATIONS    #######
@@ -40,6 +55,26 @@ def current_user():
 
     return logged_user
 
+
+##################################################################
+###### FUNCTION THAT HOLD THE CURRENT USER IN THE SESSION ########
+##################################################################
+def current_staff():
+    
+    logged_staff = None
+    
+    if 'staff' in session:
+        staff = session['staff']
+
+        staff_cur = db.connection.cursor()
+        staff_cur.execute("SELECT * FROM staff_credentials WHERE OwnerID = %s", [staff])
+        logged_staff = staff_cur.fetchone()
+
+    return logged_staff
+
+###############################################################################################
+
+
 @app.route('/')
 def home():
     user = current_user()
@@ -50,10 +85,40 @@ def about():
     user = current_user()
     return render_template('about.html', user = user)
 
-@app.route('/contacts')
+###############################################################################
+
+@app.route('/contacts', methods=['GET', 'POST'])
 def contacts():
     user = current_user()
+
+    if request.method == 'POST':
+
+        name = request.form.get('fullname')
+        email = request.form.get('email')
+        message = request.form.get('message')
+        phone = request.form.get('phone')
+        msg = Message(subject=f'mail from {name}',
+                      body = f"Name: {name} \n email: {email} \n Phone: {phone} \n\n\n {message}",
+                      sender = email,
+                      recipients = 'BestMotoServ@outlook.com')
+
+        mail.send(msg)
+        return render_template('contacts.html', success = True)
+
+    
+        # server = smtplib.SMTP('smtp.gmail.com', 465)
+        # server.starttls()
+        # server.login('iongorincioi@gmail.com', 'Gsandanat.1')
+        # server.sendmail('iongorincioi@gmail.com', email, message)
+
+    #     res = pandas.DataFrame({'name': name, 'email': email,  'message': message}, index=[0])
+    #     res.to_csv('./contactusMessage.csv')
+    #     print("The message has been sent!")
+    # else:
+
     return render_template('contacts.html', user = user)
+
+####################################################################
 
 @app.route('/pricing')
 def pricing():
@@ -67,6 +132,7 @@ def pricing():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     user = current_user()
+    staff = current_staff()
     error = None
     if request.method == 'POST':
 
@@ -75,12 +141,39 @@ def login():
 
         #   Creating a connection cursor
         user_cur = db.connection.cursor()
+        staff_cur = db.connection.cursor()
 
          #   select the user from the database
         user_cur.execute("SELECT * FROM car_owner WHERE Email= %s", [username])
+        staff_cur.execute("SELECT * FROM Staff_credentials WHERE Email=%s", [username])
 
         #   fetch the user
         logged_user = user_cur.fetchone()
+        logged_staff = staff_cur.fetchone()
+
+################################################################################################
+
+ #   check if the staff credentials exists in database
+        if logged_staff:
+
+            #   check if the password entered match with the password in the database
+            if (logged_staff[2], password):
+
+                #   create a session
+                session['staff'] = logged_staff[0]    #   keeps the user by ID in the session
+
+                flash(f"Hello {logged_staff[1]}. You've logged in as a administrator!", category='success')
+                return redirect(url_for('home'))
+            else:
+                error = "The password is incorrect"
+                flash("Something went wrong! Make sure you are using the correct username and password.", category='error')
+              
+        else:
+            error = "Username is incorect"
+     
+
+
+################################################################################################
 
         #   check if the user exists in database
         if logged_user:
@@ -102,6 +195,8 @@ def login():
      
 
     return render_template('login.html', user = user, error = error)
+
+#################################################################################################
 
 
 #######################################################
