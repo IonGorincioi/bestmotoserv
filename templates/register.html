@@ -11,8 +11,19 @@
 <!-- PAGE CONTENT -->
 {% block content %}
 <div class="mainRegisterSection">
-  <div class="registerHeading">
-    <h2>Please fill in the form bellow to create an account.</h2>
+  <div class="registerHeading heading">
+    <h2>CREATE YOUR OWN ACCOUNT</h2>
+    <div class="accountBenefits">
+     <p>
+      Having an account you can:
+      <ul>
+        <li>benefit from a discount of up to 20%</li>
+        <li>get access to all of your vehicle information</li>
+        <li>monitor your service history</li>
+      </ul>
+     </p>
+    </div>
+   
   </div>
   <div class="registerForm">
     <form
@@ -26,7 +37,7 @@
         <input name="FName" type="text" class="form-control" id="FName" />
         <small>Error message</small>
       </div>
-      <br />
+
       <div class="mb-3 lastName formField">
         <label for="exampleLastName1" class="form-label">Last name</label>
         <input

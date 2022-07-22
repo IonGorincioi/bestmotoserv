@@ -10,144 +10,558 @@
 
 <!-- PAGE CONTENT -->
 {% block content %}
-<h1>Hello! You are on "Pricing" page.</h1>
 <h2>Check the price for car services before making a booking</h2>
 
 <div>
-  <!-- BASIC SERVICE -->
-  <div class="services">
-    <div class="serviceType bg-primary">
-      <h3>
-        Basic Service / €89<sup> <u>99</u></sup>
-      </h3>
+  <!-- <div class="Row"> -->
+
+    <!-- #################################### -->
+    <!-- ########  2. BASIC SERVICE ########## -->
+    <!-- #################################### -->
+    
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Basic Service / €89<sup> <u>99</u></sup>
+        </h3>
+      </div>
+
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/basicservice.jpg" />
+      </div>
+
+      <div class="serviceInfo">
+        <div class="serviceText">
+          <h6>
+            "Basic service" include inspecting, Replacing and adjusting the
+            following:
+          </h6>
+        </div>
+        <p>
+          <a class="btn btn-secondary" 
+            data-bs-toggle="collapse" 
+            href="#basicService" 
+            role="button" 
+            aria-expanded="false" 
+            aria-controls="collapseExample">
+            What's included
+          </a>
+        </p>
+        <div class="collapse" id="basicService">
+          <div class="card card-body">
+          <p>
+            <ul>
+              <li>Visual inspection</li>
+              <li>Oil & filter change</li>
+              <li>Windscreen washer fluid</li>
+              <li>Anti-freeze</li>
+              <li>Brake fluid</li>
+              <li>Steering fluid</li>
+              <li>Brake Pads & Discs</li>
+              <li>Oil & Fluid Leaks</li>
+              <li>Tyres, Condition & Pressures</li>
+              <li>Electrical System</li>
+              
+            </ul>
+          </p>
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
     </div>
 
-    <div class="picture">
-      <img src="../static/images/pricingpage_images/basicservice.jpg" />
+    <!-- #################################### -->
+    <!-- ########  2. FULL SERVICE ########## -->
+    <!-- #################################### -->
+    
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Full Service / €119<sup> <u>99</u></sup>
+        </h3>
+      </div>
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/fullservice.jpg" />
+      </div>
+      <div class="serviceInfo">
+
+        <div class="serviceText">
+          <h6>
+            "Full service" include inspecting, Replacing and adjusting the
+            following:
+          </h6>
+        </div>
+
+        <p>
+          <a class="btn btn-secondary" 
+            data-bs-toggle="collapse" 
+            href="#fullService" 
+            role="button" 
+            aria-expanded="false" 
+            aria-controls="collapseExample">
+            What's included
+          </a>
+        </p>
+        <div class="collapse" id="fullService">
+          <div class="card card-body">
+            <p>
+              <ul>
+                <strong>Replacing:</strong>
+                <li>Engine oil</li> 
+                <li>Oil filter</li> 
+                <li>Air filter</li>
+                <li>Windscreen washer fluid</li>
+                <strong>Inspecting and adjusting:</strong>
+                <li>Fluid Levels</li>
+                <li>Oil & Fluid Leaks</li>
+                <li>Drive Shafts</li>
+                <li>Exhaust & Mountings</li>
+                <li>Front & Rear Suspensions</li>
+                <li>Brakes Pipes & Hoses</li>
+                <li>Brake Pads & Discs</li>
+                <li>Brake Linings & Drums</li>
+                <li>Brake Pedal & Handbrake</li>
+                <li>Drive Belts</li>
+                <li>Cooling System</li>
+                <li>Electrical System</li>
+                <li>Tyres, Condition & Pressures</li>
+                <li>Seat Belts</li>
+                <li>Bodywork, Corrosion</li>      
+              </ul>
+            </p>
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
     </div>
 
-    <div class="serviceInfo">
-      <h6>Information about "Basic service"</h6>
-      <h6>
-        <ul>
-          <li>oiling</li>
-          <li>oiling</li>
-          <li>oiling</li>
-        </ul>
-      </h6>
-      <br />
+
+    <!-- #################################### -->
+    <!-- ######   3. PRE-NCT SERVICE ######## -->
+    <!-- #################################### -->
+   
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Pre-NCT Service / €89<sup> <u>99</u></sup>
+        </h3>
+      </div>
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/Pre-NCT.jpg" />
+      </div>
+      <div class="serviceInfo">
+
+        <div class="serviceText">
+          <h6>
+            The following items are included in our Pre-NCT inspection:
+          </h6>
+        </div>
+        
+        <div>
+          <p>
+            <a class="btn btn-secondary" 
+              data-bs-toggle="collapse" 
+              href="#pre-NCT" 
+              role="button" 
+              aria-expanded="false" 
+              aria-controls="collapseExample">
+              What's included
+            </a>
+          </p>
+          <div class="collapse" id="pre-NCT">
+            <div class="card card-body">
+
+              <p>
+                <ul>
+                  <li>Brakes</li>
+                  <li>Exhaust emissions</li>
+                  <li>Wheels and tyres</li>
+                  <li>Lights</li>
+                  <li>Steering and suspension</li>
+                  <li>Chassis and under body</li>
+                  <li>Electrical systems</li>
+                  <li>Glass and mirrors</li>
+                  <li>Interior</li>
+                  <li>Fuel system</li>
+                  <li>Miscellaneous</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
+    </div>
+  <!-- </div> -->
+
+
+
+  <!-- <div class="Row"> -->
+    <!-- #################################### -->
+    <!-- ######   4. TYRES SERVICE ######### -->
+    <!-- #################################### -->
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Tyres Service  / €89<sup> <u>99</u></sup>
+        </h3>
+      </div>
+
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/tyreservice.jpg" />
+      </div>
+
+      <div class="serviceInfo">
+
+        <div class="serviceText">
+          <h6>
+            Information about "Tyres service":
+          </h6>
+        </div>
+        
+          <p>
+            <a class="btn btn-secondary" 
+              data-bs-toggle="collapse" 
+              href="#tyreService" 
+              role="button" 
+              aria-expanded="false" 
+              aria-controls="collapseExample">
+              What's included
+            </a>
+          </p>
+
+          <div class="collapse" id="tyreService">
+            <div class="card card-body">
+              <p>
+                <ul>
+
+                </ul>
+              </p>  
+            </div>
+          </div>
+        <br />
+      </div>
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
     </div>
 
-    <div class="bookService">
-      <a href="{{url_for('bookService')}}">
-        <button class="btn btn-primary">Book now</button>
-      </a>
-    </div>
-  </div>
 
-  <!-- FULL SERVICE -->
-  <div class="services">
-    <div class="serviceType bg-primary">
-      <h3>
-        Full Service / €119<sup> <u>99</u></sup>
-      </h3>
-    </div>
-    <div class="picture">
-      <img src="../static/images/pricingpage_images/fullservice.jpg" />
-    </div>
-    <div class="serviceInfo"></div>
+    <!-- #################################### -->
+    <!-- ######  5. SUSPENTION REPAIR ####### -->
+    <!-- #################################### -->
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Suspension repair  / €89<sup> <u>99</u></sup>
+        </h3>
+      </div>
 
-    <div class="bookService">
-      <a href="{{url_for('bookService')}}">
-        <button class="btn btn-primary">Book now</button>
-      </a>
-    </div>
-  </div>
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/disks.jpg" />
+      </div>
 
-  <!-- PRE-NCT SERVICE -->
-  <div class="services">
-    <div class="serviceType bg-primary">
-      <h3>
-        Pre-NCT Service / €89<sup> <u>99</u></sup>
-      </h3>
-    </div>
-    <div class="picture">
-      <img src="../static/images/pricingpage_images/Pre-NCT.jpg" />
-    </div>
-    <div class="serviceInfo"></div>
-    <div class="bookService">
-      <a href="{{url_for('bookService')}}">
-        <button class="btn btn-primary">Book now</button>
-      </a>
-    </div>
-  </div>
+      <div class="serviceInfo">
 
-  <!-- 4TH TYPE OF SERVICE -->
-  <div class="services">
-    <div class="serviceType bg-primary">
-      <h3>
-        Tyres Service / €89<sup> <u>99</u></sup>
-      </h3>
-    </div>
+        <div class="serviceText">
+          <h6>
+            Information about " ":
+          </h6>
+        </div>
+        
+          <p>
+            <a class="btn btn-secondary" 
+              data-bs-toggle="collapse" 
+              href="#collapseExample" 
+              role="button" 
+              aria-expanded="false" 
+              aria-controls="collapseExample">
+              What's included
+            </a>
+          </p>
 
-    <div class="picture">
-      <img src="../static/images/pricingpage_images/tyreservice.jpg" />
-    </div>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <p>
+                <ul>
+                  <li>Wheel balancing</li>
+                  <li>Replacement of Shock absorbers</li>
+                  <li>Lever replacement</li>
+                  <li>Wheel hub replacement</li>
+                  <li>Replacement of stabilizer bushings</li>
+                  <li>Replacing the rear stabilizer rods</li>
+                  <li>Replacement of front stabilizer bars</li>
+                  <li>Suspension spring change</li>
+                </ul>
+              </p>  
+            </div>
+          </div>
+        <br />
+      </div>
 
-    <div class="serviceInfo">
-      <h6>Information about "Basic service"</h6>
-      <h6>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </h6>
-      <br />
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
     </div>
 
-    <div class="bookService">
-      <a href="{{url_for('bookService')}}">
-        <button class="btn btn-primary">Book now</button>
-      </a>
-    </div>
-  </div>
+    <!-- #################################### -->
+    <!-- ######   6. ENGINE SERVICE ######### -->
+    <!-- #################################### -->
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Engine Service / €49<sup> <u>99</u></sup>
+        </h3>
+      </div>
 
-  <!-- 5TH TYPE OF SERVICE -->
-  <div class="services">
-    <div class="serviceType bg-primary">
-      <h3>
-        Full Service / €119<sup> <u>99</u></sup>
-      </h3>
-    </div>
-    <div class="picture">
-      <img src="../static/images/pricingpage_images/" />
-    </div>
-    <div class="serviceInfo"></div>
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/engine.jpg" />
+      </div>
 
-    <div class="bookService">
-      <a href="{{url_for('bookService')}}">
-        <button class="btn btn-primary">Book now</button>
-      </a>
-    </div>
-  </div>
+      <div class="serviceInfo">
 
-  <!-- 6TH TYPE OF SERVICE -->
-  <div class="services">
-    <div class="serviceType bg-primary">
-      <h3>
-        Basic Service / €89<sup> <u>99</u></sup>
-      </h3>
+        <div class="serviceText">
+          <h6>
+            Information about " ":
+          </h6>
+        </div>
+       
+          <p>
+            <a class="btn btn-secondary" 
+              data-bs-toggle="collapse" 
+              href="#engineService" 
+              role="button" 
+              aria-expanded="false" 
+              aria-controls="collapseExample">
+              What's included
+            </a>
+          </p>
+
+          <div class="collapse" id="engineService">
+            <div class="card card-body">
+              <p>
+                <ul>
+                  <li>General engine reparation</li>
+                  <li>Valve adjustment</li>
+                  <li>Compression measurement</li>
+                  <li>Turbine replacement</li>
+                  <li>Cylinder head gasket replacement</li>
+                  <li>Replacement of piston rings and caps</li>
+                  <li>Engine Mount Replacement</li>
+                  <li>Replacement of the intake and exhaust gallery gasket</li>  
+                </ul>
+              </p>  
+            </div>
+          </div>
+        <br />
+      </div>
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
     </div>
-    <div class="picture">
-      <img src="../static/images/pricingpage_images/" />
+
+
+    <!-- ################################################## -->
+    <!-- ######   7. AIR CONDITIONING AND HEATING ######### -->
+    <!-- ################################################## -->
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Air conditioning / €19<sup> <u>99</u></sup>
+        </h3>
+      </div>
+
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/airConditioning.jpg" />
+      </div>
+
+      <div class="serviceInfo">
+
+        <div class="serviceText">
+          <h6>
+            Air conditioning and ventilation are very important for a comfortable microclimate inside your vehicle.
+          </h6>
+        </div>
+       
+          <p>
+            <a class="btn btn-secondary" 
+              data-bs-toggle="collapse" 
+              href="#airConditioning" 
+              role="button" 
+              aria-expanded="false" 
+              aria-controls="collapseExample">
+              What's included
+            </a>
+          </p>
+
+          <div class="collapse" id="airConditioning">
+            <div class="card card-body">
+              <p>
+                <ul>
+                  <li>Conditioner drain</li>
+                  <li>Radiator repair</li>
+                  <li>Disinfection of the ventilation system</li>
+                  <li>Air conditioning antibacterial treatment</li>
+                  <li>Air conditioning compressor replacement</li>           
+                </ul>
+              </p>  
+            </div>
+          </div>
+        <br />
+      </div>
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
     </div>
-    <div class="serviceInfo"></div>
-    <div class="bookService">
-      <a href="{{url_for('bookService')}}">
-        <button class="btn btn-primary">Book now</button>
-      </a>
+
+
+    <!-- ################################################## -->
+    <!-- #########   8. COOLING SYSTEM  ################### -->
+    <!-- ################################################## -->
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Cooling system / €19<sup> <u>99</u></sup>
+        </h3>
+      </div>
+
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/cooling.jpg" />
+      </div>
+
+      <div class="serviceInfo">
+
+        <div class="serviceText">
+          <h6>
+            The cooling system removes the heat excess from the engine,  
+            preventing it from overheating. Cooling system failures must 
+            be taken seriously and fixed in good time.
+          </h6>
+        </div>
+       
+          <p>
+            <a class="btn btn-secondary" 
+              data-bs-toggle="collapse" 
+              href="#coolingSystem" 
+              role="button" 
+              aria-expanded="false" 
+              aria-controls="collapseExample">
+              What's included
+            </a>
+          </p>
+
+          <div class="collapse" id="coolingSystem">
+            <div class="card card-body">
+              <p>
+                <ul>
+                  <li>Repairing or  replacing the radiator</li>
+                  <li>Thermostat replacement</li>
+                  <li>Coolant pump replacement</li>
+                  <li>Cooling system cleaning</li>       
+                </ul>
+              </p>  
+            </div>
+          </div>
+        <br />
+      </div>
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
     </div>
-  </div>
+
+
+    <!-- ################################################## -->
+    <!-- #########   9. MISCELLANEOUS SERVICES  ########### -->
+    <!-- ################################################## -->
+    <div class="services">
+      <div class="serviceType bg-primary">
+        <h3>
+          Miscellaneous Services
+        </h3>
+      </div>
+
+      <div class="picture">
+        <img src="../static/images/pricingpage_images/misscelaneous.jpg" />
+      </div>
+
+      <div class="serviceInfo">
+
+        <div class="serviceText">
+          <h6>
+          Our car service provide a range of miscellaneous services that you may be interested in. 
+          </h6>
+        </div>
+       
+          <p>
+            <a class="btn btn-secondary" 
+              data-bs-toggle="collapse" 
+              href="#miscellaneous" 
+              role="button" 
+              aria-expanded="false" 
+              aria-controls="collapseExample">
+              What's included
+            </a>
+          </p>
+
+          <div class="collapse" id="miscellaneous">
+            <div class="card card-body">
+              <p>
+                <ul>
+                  <li>Restoring the car's interior</li>
+                  <li>Reparation or replacement of the headlights</li>
+                  <li>Headlight adjustment</li>
+                  <li>Car polishing</li>
+                  <li>Odour removal</li>     
+                  <li>Polishing body parts</li>  
+                  <li>Car carpet repair</li>  
+                  <li>Welding works</li>  
+                  <li>Car lock repair</li>              
+                </ul>
+              </p>  
+            </div>
+          </div>
+        <br />
+      </div>
+
+      <div class="bookService">
+        <a href="{{url_for('bookService')}}">
+          <button class="btn btn-primary">Book now</button>
+        </a>
+      </div>
+    </div>
+  <!-- </div> -->
 </div>
 {% endblock %}

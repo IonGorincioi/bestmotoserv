@@ -105,17 +105,6 @@ def contacts():
         mail.send(msg)
         return render_template('contacts.html', success = True)
 
-    
-        # server = smtplib.SMTP('smtp.gmail.com', 465)
-        # server.starttls()
-        # server.login('iongorincioi@gmail.com', 'Gsandanat.1')
-        # server.sendmail('iongorincioi@gmail.com', email, message)
-
-    #     res = pandas.DataFrame({'name': name, 'email': email,  'message': message}, index=[0])
-    #     res.to_csv('./contactusMessage.csv')
-    #     print("The message has been sent!")
-    # else:
-
     return render_template('contacts.html', user = user)
 
 ####################################################################
@@ -184,7 +173,7 @@ def login():
                 #   create a session
                 session['user'] = logged_user[0]    #   keeps the user by ID in the session
 
-                flash(f"Hello {logged_user[1]}. You've just been logged in!", category='success')
+                flash(f"Hello {logged_user[1]}. You've logged in successfully!", category='success')
                 return redirect(url_for('home'))
             else:
                 error = "The password is incorrect"

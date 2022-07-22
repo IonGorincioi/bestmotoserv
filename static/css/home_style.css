@@ -1,35 +1,52 @@
 .homepage {
   /* border: 5px solid brown; */
   font-size: 50px;
-  height: 100%;
 }
 
 .homeMainSection {
   float: left;
   /* border: 2px solid blue; */
+  align-items: center;
   width: 70%;
   padding: 20px 10px 20px 10px;
 }
 
 .mainContent {
   float: left;
+  margin-top: -100px;
   /* border: 2px solid red; */
-  margin: 10px;
+  margin-left: 150px;
+  padding: 20px;
+  width: 120%;
+  height: auto;
+  background-color: #fbfbf8;
+  text-align: justify;
+}
+
+.advertInfo {
+  float: left;
+  width: 500px;
+  height: 300px;
+  /* background-color: #fbfbf8; */
+  color: #ccac00;
+  margin-top: -400px;
+  margin-left: 150px;
+  font-weight: bold;
 }
 
 .mainImage {
   /* border: 2px solid green; */
-  float: left;
   width: 100%;
   background-image: url('../images/homepage_images/homepageImage.jpg');
+  background-repeat: no-repeat;
   border-radius: 20px;
   height: 30rem;
   background-size: 100%;
-  margin: 10px 10px 0px 0px;
+  margin: 20px 10px 0px 50px;
 }
 
 .assideButtons {
   width: 100%;
-  margin: 50px 30px 50px 0px;
+  margin: 30px 30px 50px 0px;
   text-align: center;
 }

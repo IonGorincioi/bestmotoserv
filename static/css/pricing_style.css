@@ -12,10 +12,21 @@
 .serviceType {
   /* border: 1px solid gray; */
   margin-left: 10%;
-  padding-top: 10px;
-  width: 80%;
-  height: 65px;
+  padding: 10px;
+  width: 90%;
+  height: auto;
   color: white;
+}
+
+.serviceText {
+  /* border: 2px solid indigo; */
+  text-align: justify;
+  width: 100%;
+  height: 75px;
+}
+
+.serviceType h3 {
+  font-size: 24px;
 }
 
 .picture {
@@ -33,10 +44,24 @@
   /* border: 2px solid green; */
   text-align: left;
   margin: 5px;
-  height: 150px;
+  height: auto;
   width: 90%;
+  margin-left: 20px;
+}
+
+.serviceInfo p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.serviceContent {
+  width: 200px;
 }
 
 .bookService {
   text-align: center;
+}
+
+.Row {
+  display: flex;
 }

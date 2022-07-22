@@ -5,6 +5,8 @@
 .contactPage {
   /* border: 2px solid red; */
   width: 100%;
+  margin-top: 5%;
+  /* margin-bottom: 10%; */
 }
 
 /* QUOTE REQUIRE FORM SECTION STYLE */
@@ -12,7 +14,8 @@
   float: left;
   background-color: #e6e6e6;
   border-radius: 2%;
-  margin: 10px;
+  margin: 20px 10px 10px 10px;
+  padding-top: 10px;
   width: 25%;
   height: 520px;
 }
@@ -37,7 +40,7 @@
 /* MAP LOCATION SECTION STYLE */
 .locationMap {
   float: left;
-  margin: 10px;
+  margin: 20px 10px 10px 10px;
   width: 45%;
   height: 520px;
 }
@@ -54,7 +57,8 @@
   background-color: #e6e6e6;
   text-align: center;
   float: left;
-  margin: 10px;
+  margin: 20px 10px 25px 10px;
+  padding-top: 20px;
   width: 25%;
   height: 520px;
 }

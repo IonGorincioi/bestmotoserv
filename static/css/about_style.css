@@ -6,28 +6,50 @@
   float: left;
   /* border: 2px solid black; */
   width: 70%;
+  margin-top: 10px;
 }
 
 .aboutMainSection {
   float: left;
+  background-color: #fbfbf8;
   /* border: 2px solid green; */
   width: 100%;
+  height: 561px;
 }
 
 .aboutInfo {
+  text-align: justify;
+  padding: 10px;
   float: left;
   width: 40%;
   /* border: 2px solid blue; */
-  margin-left: 20px;
+  margin: 20px;
 }
 
 .aboutGIF {
   float: left;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-right: -20px;
   width: 56%;
   /* border: 2px solid red; */
 }
+
+/* .car-logo img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+}
+
+.car-logo {
+  width: 100%;
+  
+  float: left;
+  padding: 20px;
+} */
 
 img {
   width: 630px;

@@ -7,90 +7,98 @@
 {% block header %}
 <h1>About us</h1>
 {% endblock %}
+<div>
+  <!-- PAGE CONTENT -->
+  {% block content %}
+  <div class="aboutpage">
+    <!-- <h1>Hey! You are in "About us" page</h1> -->
 
-<!-- PAGE CONTENT -->
-{% block content %}
-<div class="aboutpage">
-  <h1>Hey! You are in "About us" page</h1>
-
-  <div class="aboutMainSection">
-    <div class="aboutInfo">
-      <h2>Info section Info section Info section Info section</h2>
-      <h2>Info section Info section Info section Info section</h2>
-      <h2>Info section</h2>
-
-      <h2>Info section</h2>
-      <h2>Info section</h2>
-      <h2>Info section</h2>
-      <h2>Info section</h2>
-      <h2>Info section</h2>
-      <h2>Info section</h2>
-      <h2>Info section</h2>
+    <div class="aboutMainSection">
+      <div class="aboutInfo">
+        <h4>
+          <em><strong> Motoserv </strong></em>is a small family business,
+          founded in 2000, based in Dublin, which has managed to build a
+          reputation based on quality, reliability and professionalism.
+        </h4>
+        <h4>
+          Over the last 20 years, we gained experience in providing the best
+          quality services, offering our customers honest quality and
+          transparent service.
+        </h4>
+        <h4>
+          Our highly skilled team will provide services to ensure that your car
+          is running efficiently, ensuring that you and your family are safe on
+          the road.
+        </h4>
+      </div>
+      <div class="aboutGIF">
+        <img
+          src="{{url_for('static', filename='images/aboutpage_images/pic5.jpg')}}"
+          id="slideimages"
+        />
+      </div>
     </div>
-    <div class="aboutGIF">
-      <img
-        src="{{url_for('static', filename='images/aboutpage_images/pic5.jpg')}}"
-        id="slideimages"
-      />
+  </div>
+
+  <script src="../static/JS/slidesFunction.js"></script>
+
+  {% endblock %}
+
+  <!--  -->
+  <!--  -->
+
+  {% block asside %}
+
+  <div class="assideContent">
+    <!--  -->
+    <!-- <div class="assideSection"> -->
+    <div class="assideButtons">
+      <button type="button" class="btn btn-primary btn-lg bookservice">
+        <a class="dropdown-item" href="{{url_for('bookService')}}"
+          >Book a car service</a
+        >
+      </button>
+    </div>
+
+    <div class="assideButtons">
+      <button type="button" class="btn btn-primary btn-lg bookservice">
+        <a class="dropdown-item" href="{{url_for('helpPage')}}"
+          >Contact us for advice</a
+        >
+      </button>
+    </div>
+
+    <div class="dropdown assideButtons">
+      <button
+        class="btn btn-primary dropdown-toggle bookservice btn-lg"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Useful tips
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li>
+          <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
+            >Accident advices</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{url_for('tips')}}"
+            >Car maintainance tips</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{url_for('tips')}}"
+            >Preparation for the NCT</a
+          >
+        </li>
+      </ul>
     </div>
   </div>
-</div>
-
-<script src="../static/JS/slidesFunction.js"></script>
-{% endblock %}
-
-<!--  -->
-<!--  -->
-
-{% block asside %}
-
-<div class="assideContent">
+  <br />
   <!--  -->
-  <!-- <div class="assideSection"> -->
-  <div class="assideButtons">
-    <button type="button" class="btn btn-primary btn-lg bookservice">
-      <a class="dropdown-item" href="{{url_for('bookService')}}"
-        >Book a car service</a
-      >
-    </button>
-  </div>
 
-  <div class="assideButtons">
-    <button type="button" class="btn btn-primary btn-lg bookservice">
-      <a class="dropdown-item" href="{{url_for('helpPage')}}"
-        >Contact us for advice</a
-      >
-    </button>
-  </div>
-
-  <div class="dropdown assideButtons">
-    <button
-      class="btn btn-primary dropdown-toggle bookservice btn-lg"
-      type="button"
-      id="dropdownMenuButton1"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Useful tips
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li>
-        <a class="dropdown-item" href="{{url_for('accidentAdvices')}}"
-          >Accident advices</a
-        >
-      </li>
-      <li>
-        <a class="dropdown-item" href="{{url_for('tips')}}"
-          >Car maintainance tips</a
-        >
-      </li>
-      <li>
-        <a class="dropdown-item" href="{{url_for('tips')}}"></a>
-      </li>
-    </ul>
-  </div>
-  <!-- </div> -->
-  <!--  -->
+  {% endblock %}
 </div>
-
-{% endblock %}
