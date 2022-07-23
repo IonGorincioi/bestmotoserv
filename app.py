@@ -57,7 +57,7 @@ def current_user():
 
 
 ##################################################################
-###### FUNCTION THAT HOLD THE CURRENT USER IN THE SESSION ########
+###### FUNCTION THAT HOLD THE CURRENT STAFF MEMBER IN THE SESSION ########
 ##################################################################
 def current_staff():
     
@@ -109,10 +109,10 @@ def contacts():
 
 ####################################################################
 
-@app.route('/pricing')
-def pricing():
+@app.route('/services') 
+def services():
     user = current_user()
-    return render_template('pricing.html', user = user)
+    return render_template('services.html', user = user)
 
 
 #######################################################
