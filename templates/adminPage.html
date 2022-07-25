@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+<!-- PAGE TITLE -->
+{% block title %}Admin{% endblock %}
+
+<!-- HEADER -->
+{% block header %}
+<h1>Administrator page</h1>
+{% endblock %}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+<div class="headingInfo">
+  <h2>Welcome to Administrator page.</h2>
+</div>
+<!-- <div>
+  <div class="admins">
+    <div class="adminForm">form</div>
+    <div class="displayAdmins">display</div>
+  </div> -->
+  <div>
+    <button type="button" class="btn btn-info AdminButton">
+      <h1>Update Admins</h1>
+    </button>
+  </div>
+  <div>
+    <button type="button" class="btn btn-info AdminButton">
+      <h1>Update Mechanics</h1>
+    </button>
+  </div>
+  <div>
+    <button type="button" class="btn btn-info AdminButton">
+      <h1>Update Users</h1>
+    </button>
+  </div>
+</div>
+{% endblock %}

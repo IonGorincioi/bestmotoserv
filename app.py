@@ -1,5 +1,6 @@
 
 # import pandas
+# from projectModule import current_user
 import smtplib
 import sqlite3, os
 from flask_mail import Mail, Message
@@ -48,12 +49,17 @@ def current_user():
     
     if 'user' in session:
         user = session['user']
-
+        # print(user)
         user_cur = db.connection.cursor()
         user_cur.execute("SELECT * FROM car_owner WHERE OwnerID = %s", [user])
         logged_user = user_cur.fetchone()
-
+    # print(logged_user)
     return logged_user
+
+# print(current_user)
+    
+
+
 
 
 ##################################################################
@@ -67,7 +73,7 @@ def current_staff():
         staff = session['staff']
 
         staff_cur = db.connection.cursor()
-        staff_cur.execute("SELECT * FROM staff_credentials WHERE OwnerID = %s", [staff])
+        staff_cur.execute("SELECT * FROM staff_credentials WHERE CredentialsID = %s", [staff])
         logged_staff = staff_cur.fetchone()
 
     return logged_staff
@@ -78,12 +84,28 @@ def current_staff():
 @app.route('/')
 def home():
     user = current_user()
-    return render_template("index.html", user = user)
+    staff = current_staff()
+    return render_template("index.html", user = user, staff = staff)
 
 @app.route('/about')
 def about():
     user = current_user()
-    return render_template('about.html', user = user)
+    staff = current_staff()
+    return render_template('about.html', user = user, staff = staff)
+
+@app.route('/administrator')
+def administrator():
+    user = current_user()
+    staff = current_staff()
+    return render_template('adminPage.html', user = user, staff = staff)
+
+
+@app.route('/mechanic')
+def mechanic():
+    user = current_user()
+    staff = current_staff()
+    return render_template('mechanicPage.html', user = user, staff = staff)
+
 
 ###############################################################################
 
@@ -123,6 +145,7 @@ def login():
     user = current_user()
     staff = current_staff()
     error = None
+    
     if request.method == 'POST':
 
         username = request.form.get('email')
@@ -139,6 +162,7 @@ def login():
         #   fetch the user
         logged_user = user_cur.fetchone()
         logged_staff = staff_cur.fetchone()
+      
 
 ################################################################################################
 
@@ -147,12 +171,18 @@ def login():
 
             #   check if the password entered match with the password in the database
             if (logged_staff[2], password):
-
+               
                 #   create a session
                 session['staff'] = logged_staff[0]    #   keeps the user by ID in the session
+                
 
-                flash(f"Hello {logged_staff[1]}. You've logged in as a administrator!", category='success')
-                return redirect(url_for('home'))
+                #   chack the role of the staff and display a welcome message
+                if (logged_staff[4] == 2):
+                    flash(f"Hello {logged_staff[1]}. You've logged in as a administrator!", category='success')
+                    return redirect(url_for('administrator'))
+                elif (logged_staff[4] == 1):
+                    flash(f"Hello {logged_staff[1]}. You've logged in as a mechanic!", category='success')
+                    return redirect(url_for('mechanic'))
             else:
                 error = "The password is incorrect"
                 flash("Something went wrong! Make sure you are using the correct username and password.", category='error')
@@ -183,7 +213,7 @@ def login():
             error = "Username is incorect"
      
 
-    return render_template('login.html', user = user, error = error)
+    return render_template('login.html', user = user, error = error, staff = staff)
 
 #################################################################################################
 
@@ -194,7 +224,11 @@ def login():
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     user = current_user()
+    error = None
+
+   
     if request.method == 'POST':
+    
         FName = request.form.get('FName')
         LName = request.form.get('LName')
         email = request.form.get('email')
@@ -203,12 +237,28 @@ def register():
         conf_hashed_pass = generate_password_hash(request.form.get('conf_password'), method='sha256')
 
         #   Check the credentials rules
-    
-        if len(request.form.get('password')) < 7:
-            flash("Password must be at least 7 charactaers", category = 'error')
+        if  len(request.form.get('FName')) == 0:
+            error = "Please enter your first name"
+            # flash("First name is a mandatory field", category = 'error')
+
+        elif len(request.form.get('LName')) == 0:
+            error = "Please enter your last name"
+
+        elif len(request.form.get('email')) == 0:
+            error = "Please enter your email address"
+            if email:
+                error = "This email has been used"
+
+        elif len(request.form.get('phone')) == 0:
+            error = "Please enter your phone number"
+
+        elif len(request.form.get('password')) < 7:
+            error = "Password must be at least 7 characters"
+            # flash("Password must be at least 7 characters", category = 'error')
 
         elif request.form.get('password') != request.form.get('conf_password'):
-            flash("Passwords do not match", category = 'error')
+            error = "Passwords do not match"
+            # flash("Passwords do not match", category = 'error')
 
         else:
 
@@ -225,14 +275,17 @@ def register():
             #   Closing the cursor
             user_cur.close()
 
-            session['user'] = FName
+            session['user'] = email
 
             flash(f"Hello {FName}. Your account has been created successfuly. Please log in to your account.", category = 'success')
 
             return redirect(url_for('login'))
+        
+    # else: 
+    #     error = "All fields are mandatory"
 
 
-    return render_template('register.html', user = user)
+    return render_template('register.html', user = user, error = error)
 
 ######################################################################
 
@@ -253,29 +306,111 @@ def tips():
 @app.route('/bookService', methods = ['GET', 'POST'])
 def bookService():
     user = current_user()
-    if request.method == 'POST':
-        carDetails  = request.form
-        Manufacturer = carDetails['Manufacturer']
-        Model = carDetails['Model']
-        RegYear = carDetails['RegYear']
-        Reg_number = carDetails['Reg_number']
+    
+    #############################################
+    #####   if the user is logged in   ##########
 
-        #   Creating a connection cursor
-        cursor = db.connection.cursor()
-
-        #   Executing SQL Statements
-        cursor.execute("INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number)\
-                        VALUES (%s, %s, %s, %s)", (Manufacturer, Model, RegYear, Reg_number))
-
-        #   Saving the actions performed on the DB
-        db.connection.commit()
+    if user:
+        if request.method == 'POST':
+            carDetails  = request.form
+            Manufacturer = carDetails['Manufacturer']
+            Model = carDetails['Model']
+            RegYear = carDetails['RegYear']
+            Reg_number = carDetails['Reg_number']
+            OwnerID = int(user[0])
         
-        #   Closing the cursor
-        cursor.close()
+            #   Creating a connection cursor
+            cursor = db.connection.cursor()
+                
+            #   Executing SQL Statements
+            cursor.execute('''INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number, OwnerID)
+                            VALUES (%s, %s, %s, %s, %b)''', (Manufacturer, Model, RegYear, Reg_number, OwnerID))
+
+            #   Saving the actions performed on the DB
+            db.connection.commit()
+
+            cursor.close()
+
+    #############################################
+    #####   if the user is not logged in   ######
+    else:
+        if request.method == 'POST':
+            carDetails  = request.form
+            Manufacturer = carDetails['Manufacturer']
+            Model = carDetails['Model']
+            RegYear = carDetails['RegYear']
+            Reg_number = carDetails['Reg_number']
+        
+        
+            #   Creating a connection cursor
+            cursor = db.connection.cursor()
+                
+            #   Executing SQL Statements
+            cursor.execute('''INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number)
+                            VALUES (%s, %s, %s, %s)''', (Manufacturer, Model, RegYear, Reg_number))
+
+            #   Saving the actions performed on the DB
+            db.connection.commit()
+
+            cursor.close()
 
     return render_template('bookservice.html', user = user)
+#######################################################
+    
+    
+    
+    
 
 
+#########################################################################
+###  FUNCTION THAT CREATES A VIEW GETTING DATA FROM MULTIPLE TABLES   ###
+#########################################################################
+def get_data():
+    cur = db.connection.cursor()
+    cur.execute(''' DROP VIEW IF EXISTS userHistory;
+                    CREATE VIEW userHistory AS
+                    SELECT car_owner.FName,
+                           car_owner.LName,
+                           car_owner.Email,
+                           vehicle.Manufacturer,
+                           vehicle.Model,
+                           vehicle.RegYear,
+                           vehicle.Reg_number
+                    FROM car_owner
+                    INNER JOIN vehicle
+                    ON car_owner.OwnerID=vehicle.OwnerID''')
+    rows = cur.fetchall()    
+    return rows
+
+            ##############################################################
+            ######################  USER HISTORY VIEW   ##################
+            ##############################################################
+
+@app.route('/yourHistory')
+def userHistory():
+    user = current_user()
+    
+    Email = user[3]
+    if 'user' in session:
+        user = session['user']
+
+        get_data()
+        
+        
+        cur = db.connection.cursor()
+        print(Email)
+        cur.execute('''SELECT * FROM userHistory WHERE Email = %s ''', [Email] )
+        
+        result = cur.fetchall()
+        db.connection.commit()
+        cur.close()
+    
+   
+   
+    return render_template('userHistory.html', user = user,
+                                               result = result)
+
+########################################################################
 @app.route('/help')
 def helpPage():
     user = current_user()
@@ -284,7 +419,7 @@ def helpPage():
 @app.route('/logout')
 def logout():
     session.pop('user', None)
-
+    session.pop('staff', None)
     flash("You have been logged out. We are waiting for you again.", category="success")
     return redirect(url_for('home'))
 

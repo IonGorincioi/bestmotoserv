@@ -46,6 +46,14 @@
       rel="stylesheet"
       href="{{url_for('static', filename='css/infopages_style.css')}}"
     />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/adminPage_style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/userHistory_style.css')}}"
+    />
 
     <!-- BOOTSTRAP v5.2  -->
 
@@ -95,6 +103,7 @@
             class="navigation navbar-nav me-auto my-2 my-lg-2 navbar-nav-scroll"
             style="--bs-scroll-height: 100px"
           >
+            {% if not staff %}
             <li class="nav-link" style="font-size: x-large">
               <a href="{{url_for('home')}}">Home</a>
             </li>
@@ -123,7 +132,17 @@
             {% endif %}
 
             <!--  -->
+            {% endif %}
+            <!--  -->
             {% if user %}
+            <li class="nav-link logout" style="font-size: x-large">
+              <a href="{{ url_for('userHistory') }}">History</a>
+            </li>
+            {% endif %}
+
+            <!--  -->
+            {% if user or staff %}
+
             <li class="nav-link logout" style="font-size: x-large">
               <a href="{{ url_for('logout') }}">Logout</a>
             </li>

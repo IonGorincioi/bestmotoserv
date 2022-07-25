@@ -26,6 +26,13 @@
    
   </div>
   <div class="registerForm">
+
+    {% if error %}
+    <small style="color: red; font-size: 14px; text-align: center"
+      >{{ error }}</small
+    >
+    {% endif %}
+
     <form
       method="POST"
       action="{{ url_for('register') }}"

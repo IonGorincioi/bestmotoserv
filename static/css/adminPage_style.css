@@ -1,0 +1,28 @@
+.admins {
+  border: 2px solid brown;
+  display: flex;
+  margin: 50px;
+}
+
+.adminForm {
+  border: 2px solid blue;
+  margin: 20px;
+  padding: 20px;
+  width: 40%;
+}
+
+.displayAdmins {
+  border: 2px solid green;
+  margin: 20px;
+  padding: 20px;
+  width: 60%;
+}
+
+.AdminButton {
+  display: flex;
+  float: left;
+  margin: 20px;
+  padding: 20px;
+  width: 30%;
+  height: 300px;
+}
