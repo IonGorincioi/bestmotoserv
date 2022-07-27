@@ -310,7 +310,13 @@ def bookService():
     #############################################
     #####   if the user is logged in   ##########
 
+
     if user:
+    ##  check if user has an registered car #####   
+
+
+    #############################################
+
         if request.method == 'POST':
             carDetails  = request.form
             Manufacturer = carDetails['Manufacturer']
@@ -318,6 +324,8 @@ def bookService():
             RegYear = carDetails['RegYear']
             Reg_number = carDetails['Reg_number']
             OwnerID = int(user[0])
+            ServiceType = carDetails['servicesList']
+            
         
             #   Creating a connection cursor
             cursor = db.connection.cursor()
@@ -326,6 +334,14 @@ def bookService():
             cursor.execute('''INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number, OwnerID)
                             VALUES (%s, %s, %s, %s, %b)''', (Manufacturer, Model, RegYear, Reg_number, OwnerID))
 
+            cursor.execute(''' INSERT INTO car_serviced (Date_serviced)
+                               VALUES (%s) ''', [Date_serviced])
+
+
+            # ServiceTypeID = cursor.execute(''' SELECT (ServiceTypeID)  FROM service_type ''' )
+
+            cursor.execute(''' INSERT INTO car_serviced (ServiceTypeID) 
+                               VALUES (%b)''', ServiceType)
             #   Saving the actions performed on the DB
             db.connection.commit()
 
@@ -340,6 +356,8 @@ def bookService():
             Model = carDetails['Model']
             RegYear = carDetails['RegYear']
             Reg_number = carDetails['Reg_number']
+            Date_serviced = carDetails['date']
+
         
         
             #   Creating a connection cursor
@@ -348,6 +366,9 @@ def bookService():
             #   Executing SQL Statements
             cursor.execute('''INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number)
                             VALUES (%s, %s, %s, %s)''', (Manufacturer, Model, RegYear, Reg_number))
+
+            cursor.execute(''' INSERT INTO car_serviced (Date_serviced)
+                                VALUES (%s) ''', [Date_serviced])
 
             #   Saving the actions performed on the DB
             db.connection.commit()
@@ -399,9 +420,11 @@ def userHistory():
         
         cur = db.connection.cursor()
         print(Email)
+        
         cur.execute('''SELECT * FROM userHistory WHERE Email = %s ''', [Email] )
         
         result = cur.fetchall()
+      
         db.connection.commit()
         cur.close()
     
@@ -422,6 +445,13 @@ def logout():
     session.pop('staff', None)
     flash("You have been logged out. We are waiting for you again.", category="success")
     return redirect(url_for('home'))
+
+
+@app.route('/updateAdmin')
+def updateAdmin():
+    staff = current_staff()
+    # admin = current_staff()
+    return render_template('updateAdmin.html',  staff = staff)
 
 
 if __name__=="__main__":

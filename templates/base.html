@@ -78,7 +78,7 @@
   <body>
     <!-- SET UP THE NAVIGATION BAR -->
     <nav class="navbar navbar-expand-lg" style="background-color: #222222">
-      <div class="container-fluid">
+      <div class="container-fluid navbarSize collapse show">
         <a
           class="navbar-brand"
           href="{{url_for('home')}}"
@@ -100,7 +100,7 @@
 
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul
-            class="navigation navbar-nav me-auto my-2 my-lg-2 navbar-nav-scroll"
+            class="navigation navbar-nav me-auto my-2 my-lg-2 navbar-nav-scroll navbarMenu"
             style="--bs-scroll-height: 100px"
           >
             {% if not staff %}
@@ -137,6 +137,13 @@
             {% if user %}
             <li class="nav-link logout" style="font-size: x-large">
               <a href="{{ url_for('userHistory') }}">History</a>
+            </li>
+            {% endif %}
+
+            <!--  -->
+            {% if staff %}
+            <li class="nav-link logout" style="font-size: x-large">
+              <a href="{{ url_for('administrator') }}">Main page</a>
             </li>
             {% endif %}
 

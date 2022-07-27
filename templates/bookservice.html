@@ -73,13 +73,33 @@
         <label for="exampleInputServiceType1" class="form-label"
           >Select service type</label
         >
-        <select class="form-select" aria-label="Default select example">
+        <select
+          class="form-select"
+          name="servicesList"
+          aria-label="Default select example"
+        >
           <option selected>Choose an option...</option>
-          <option value="1">Basic service</option>
-          <option value="2">Full service</option>
-          <option value="3">Pre-NCT service</option>
-          <option value="3">Tyres service</option>
+          <option value="Basic service">Basic service</option>
+          <option value="Full service">Full service</option>
+          <option value="Pre-NCT service">Pre-NCT service</option>
+          <option value="Tyres service">Tyres service</option>
+          <option value="Suspention repair">Suspention repair</option>
+          <option value="Engine service">Engine service</option>
+          <option value="Air conditioning">Air conditioning</option>
+          <option value="Cooling system service">Cooling system service</option>
         </select>
+      </div>
+      <!--  -->
+      <div class="mb-3 regNumber">
+        <label for="date" class="form-label">Date</label>
+        <input
+          type="date"
+          name="date"
+          class="form-control"
+          id="exampleInputRegNumber1"
+          aria-describedby="regNumberHelp"
+          required
+        />
       </div>
 
       <!-- SUBMIT BUTTON -->

@@ -7,9 +7,10 @@
 {% block header %}
 <h1>About us</h1>
 {% endblock %}
-<div>
-  <!-- PAGE CONTENT -->
-  {% block content %}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+<div class="aboutContent">
   <div class="aboutpage">
     <!-- <h1>Hey! You are in "About us" page</h1> -->
 
@@ -20,11 +21,13 @@
           founded in 2000, based in Dublin, which has managed to build a
           reputation based on quality, reliability and professionalism.
         </h4>
+        <br />
         <h4>
           Over the last 20 years, we gained experience in providing the best
           quality services, offering our customers honest quality and
           transparent service.
         </h4>
+        <br />
         <h4>
           Our highly skilled team will provide services to ensure that your car
           is running efficiently, ensuring that you and your family are safe on
@@ -49,10 +52,10 @@
 
   {% block asside %}
 
-  <div class="assideContent">
+  <div class="assideContent aboutAssideContent">
     <!--  -->
     <!-- <div class="assideSection"> -->
-    <div class="assideButtons">
+    <div class="assideButtons aboutAssideButtons">
       <button type="button" class="btn btn-primary btn-lg bookservice">
         <a class="dropdown-item" href="{{url_for('bookService')}}"
           >Book a car service</a
@@ -60,7 +63,7 @@
       </button>
     </div>
 
-    <div class="assideButtons">
+    <div class="assideButtons aboutAssideButtons">
       <button type="button" class="btn btn-primary btn-lg bookservice">
         <a class="dropdown-item" href="{{url_for('helpPage')}}"
           >Contact us for advice</a
@@ -68,7 +71,7 @@
       </button>
     </div>
 
-    <div class="dropdown assideButtons">
+    <div class="dropdown assideButtons aboutAssideButtons">
       <button
         class="btn btn-primary dropdown-toggle bookservice btn-lg"
         type="button"
@@ -99,6 +102,5 @@
   </div>
   <br />
   <!--  -->
-
-  {% endblock %}
 </div>
+{% endblock %}

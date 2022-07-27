@@ -14,30 +14,41 @@
   <h2>Here is your car service history.</h2>
 </div>
 <div class="userHistory">
-  <table>
+  <table class="historyTable">
     <div class="tableHeading">
       <h4>
-        Hello <strong><em>{{result[1][0] }} {{result[1][1]}}</em></strong>
+        Hello <strong><em>{{result[0][0] }} {{result[0][1]}}</em></strong>
       </h4>
-      <h4>Bellow is the history service of your car:</h4>
-    </div>
-    <tr>
-      <th>Car make</th>
-      <th>Model</th>
-      <th>Registration year</th>
-      <th>Registration number</th>
-    </tr>
-    {% for user in result %}
-    <tr>
-      <!-- <td>{{user[0]}}</td>
-      <td>{{user[1]}}</td> -->
+      <h4>Bellow is the service history of your car:</h4>
 
-      <td>{{user[3]}}</td>
-      <td>{{user[4]}}</td>
-      <td>{{user[5]}}</td>
-      <td>{{user[6]}}</td>
-    </tr>
+      <tr>
+        <th>Car make</th>
+        <th>Model</th>
+        <th>Registration year</th>
+        <th>Registration number</th>
+      </tr>
+      {% for user in result %}
+      <tr>
+        <td>{{user[3]}}</td>
+        <td>{{user[4]}}</td>
+        <td>{{user[5]}}</td>
+        <td>{{user[6]}}</td>
+      </tr>
+    </div>
     {% endfor %}
+  </table>
+
+  <table class="historyTable">
+    <tr>
+      <th>Date serviced</th>
+      <th>Type of service</th>
+      <th>Cost</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
   </table>
 </div>
 {% endblock %}

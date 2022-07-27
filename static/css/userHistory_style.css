@@ -1,35 +1,32 @@
 .userHistory {
-  margin-bottom: 20px;
+  /* border: 2px solid greenyellow; */
+  margin: 0px 5% 0px 5%;
+  width: 90%;
 }
 
-table {
+.historyTable {
+  /* border: 2px solid red; */
   width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 5%;
+  margin-left: 6%;
   padding: 5px;
 }
 
-table th {
+.historyTable tr th {
+  width: 30px;
   text-align: center;
   border: 2px solid;
-}
-
-th {
   height: 50px;
   background-color: skyblue;
   font-style: italic;
 }
 
-td {
+.historyTable tr td {
+  width: 30px;
   height: 30px;
-  /* background-color: gray;
-  color: white; */
+  border: 1px solid;
   font-weight: bold;
   padding: 10px;
-}
-
-table td {
-  border: 1px solid;
 }
 
 .tableHeading {

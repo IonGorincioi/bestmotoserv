@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+<!-- PAGE TITLE -->
+{% block title %}Update Admin{% endblock %}
+
+<!-- HEADER -->
+{% block header %}
+<h1>Update Administrator</h1>
+{% endblock %}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+<div class="headingInfo">
+  <h2>
+    Fill in the form bellow to add a new admin, or to update or delete a new one
+    .
+  </h2>
+</div>
+<div class="admins">
+  <div class="adminForm">
+    <form
+      method="POST"
+      action="{{ url_for('register') }}"
+      class="regform"
+      id="regform"
+    >
+      <div class="mb-3 firstName formField">
+        <label class="form-label">First name</label>
+        <input name="FName" type="text" class="form-control" id="FName" />
+        <small>Error message</small>
+      </div>
+
+      <div class="mb-3 lastName formField">
+        <label for="exampleLastName1" class="form-label">Last name</label>
+        <input
+          name="LName"
+          type="text"
+          class="form-control"
+          id="exampleLastName1"
+          aria-describedby="LastNameHelp"
+        />
+      </div>
+
+      <div class="mb-3 phoneNumber formField">
+        <label for="examplePhoneNumber1" class="form-label">Phone number</label>
+        <input
+          name="phone"
+          type="phone"
+          class="form-control"
+          id="examplePhoneNumber1"
+          aria-describedby="PhoneNumberHelp"
+        />
+      </div>
+
+      <div class="mb-3 emailAddress formField">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          name="email"
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3 password formField">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          name="password"
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3 confirmPassword formField">
+        <label for="exampleInputPassword1" class="form-label"
+          >Confirm Password</label
+        >
+        <input
+          name="conf_password"
+          type="password"
+          class="form-control"
+          id="exampleInputConfirmPassword1"
+        />
+      </div>
+
+      <div class="post-btn">
+        <button type="submit" class="btn btn-primary button">Next</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ################################## -->
+  <!-- <div class="displayAdmins">display</div> -->
+</div>
+{% endblock %}
