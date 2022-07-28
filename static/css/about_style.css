@@ -55,12 +55,10 @@ img {
 
 @media screen and (max-width: 1300px) {
   .aboutContent {
-    /* border: 2px solid blue; */
     margin-top: 100px;
   }
 
   .aboutpage {
-    /* border: 2px solid black; */
     width: 70%;
     margin-top: 10px;
   }
@@ -90,7 +88,7 @@ img {
 
   .aboutAssideContent {
     width: 25%;
-    /* border: 2px solid blue; */
+
     margin-left: 50px;
     margin-top: 30px;
   }
@@ -101,7 +99,6 @@ img {
   }
 }
 
-/*   #####################################   */
 @media screen and (max-width: 1100px) {
   .aboutpage {
     margin-top: -50px;
@@ -113,7 +110,6 @@ img {
   }
 
   .aboutGIF {
-    /* border: 2px solid red; */
     padding-right: 5%;
     width: 45%;
     margin-left: 2%;
@@ -137,20 +133,17 @@ img {
   }
 }
 
-/* ######################################### */
-
-/*   #####################################   */
 @media screen and (max-width: 960px) {
   .aboutMainSection {
     text-align: center;
-    /* border: 2px solid green; */
+
     height: 300px;
     margin-top: -50px;
   }
 
   .aboutInfo {
     width: 90%;
-    /* border: 2px solid greenyellow; */
+
     margin-bottom: -60px;
     height: auto;
   }
@@ -160,7 +153,6 @@ img {
   }
 
   .aboutGIF {
-    /* border: 2px solid red; */
     padding-right: 5%;
     width: 100%;
     margin-left: 2%;
@@ -173,7 +165,7 @@ img {
 
   .aboutpage {
     display: flex;
-    /* border: 2px solid blue; */
+
     width: 98%;
     margin: 15px;
   }
@@ -187,15 +179,13 @@ img {
   }
 
   .aboutAssideContent {
-    display: block;
     width: 70%;
-    /* border: 2px solid blue; */
+
     margin-left: 15%;
     margin-top: 450px;
   }
 }
 
-/*  #######################################  */
 @media screen and (max-width: 640px) {
   .aboutInfo h4 {
     font-size: 16px;

@@ -89,7 +89,6 @@
   }
 }
 
-/*   #####################################   */
 @media screen and (max-width: 960px) {
   .mainContent {
     margin-left: 75px;
@@ -117,7 +116,6 @@
   }
 }
 
-/*  #######################################  */
 @media screen and (max-width: 640px) {
   .homeMainSection {
     width: 100%;

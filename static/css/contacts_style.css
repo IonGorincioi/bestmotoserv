@@ -11,6 +11,7 @@
 
 /* QUOTE REQUIRE FORM SECTION STYLE */
 .enquiryForm {
+  /* border: 2px solid red; */
   float: left;
   background-color: #e6e6e6;
   border-radius: 2%;
@@ -80,4 +81,74 @@ table {
 
 .strong {
   font-weight: bold;
+}
+
+/* ################################################ */
+/* #########      RESPONSIVE STYLE     ############ */
+/* ################################################ */
+
+@media screen and (max-width: 1200px) {
+  .locationMap {
+    margin-top: -1100;
+    float: left;
+    width: 95%;
+    margin: 20px 10px 10px 20px;
+  }
+
+  .locationMap iframe {
+    border: 3px solid red;
+    /* margin: 20px 10px 10px 30px; */
+    height: 520px;
+    border-radius: 2%;
+  }
+
+  .enquiryForm {
+    width: 45%;
+    margin-left: 25px;
+  }
+
+  .contacts {
+    width: 45%;
+    float: right;
+    margin-top: -1080px;
+    margin-right: 3%;
+    margin-left: -25px;
+  }
+
+  .enquiryForm h5 {
+    padding-left: 25px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .locationMap {
+    width: 90%;
+    margin-top: -850px;
+  }
+
+  .locationMap iframe {
+    height: 300px;
+  }
+
+  .enquiryForm h5 {
+    font-size: medium;
+  }
+
+  .enquiryForm {
+    font-size: small;
+    text-align: center;
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 350px;
+  }
+
+  .contacts {
+    font-size: small;
+    width: 90%;
+    height: 450px;
+    float: left;
+    margin-top: 25px;
+    margin-left: 5%;
+  }
 }
