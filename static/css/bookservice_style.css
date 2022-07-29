@@ -16,3 +16,93 @@
   margin-left: 100px;
   height: auto;
 }
+
+/* ############################################# */
+/*                 RESPONSIVE STYLE              */
+/* ############################################# */
+
+@media screen and (max-width: 1300px) {
+  .bookHeading {
+    /* border: 2px solid red; */
+    margin: 10px;
+  }
+
+  .bookAsside {
+    /* border: 2px solid green; */
+    padding-left: 100px;
+    width: 25%;
+    margin-top: 100px;
+  }
+
+  .bookAsside button {
+    width: 100%;
+    margin-left: 20px;
+  }
+
+  .bookButton {
+    width: 120%;
+  }
+}
+/* ######################################################### */
+@media screen and (max-width: 1100px) {
+  .bookAsside {
+    width: 29%;
+  }
+
+  .bookAsside button {
+    width: 100%;
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .mainBookingSection {
+    width: 90%;
+  }
+
+  .bookAsside {
+    width: 50%;
+    margin-left: 27%;
+    margin-top: -25px;
+    font-size: medium;
+  }
+
+  .bookAsside button {
+    width: 90%;
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .bookingForm {
+    /* border: 2px solid blue; */
+
+    width: 90%;
+    margin-left: 10%;
+  }
+
+  .bookingForm input,
+  .bookingForm select {
+    height: 30px;
+    font-size: small;
+  }
+
+  .bookingForm label {
+    font-size: small;
+  }
+
+  .bookAsside button a,
+  ul li a {
+    font-size: small;
+  }
+
+  .bookAsside button {
+    height: 35px;
+  }
+
+  .bookAsside {
+    width: 80%;
+    margin-left: 15%;
+    margin-top: -35px;
+  }
+}
