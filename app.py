@@ -32,6 +32,11 @@ app.config['MAIL_PASSWORD'] = 'MotoServ'
 ##########################################
 #####   DATABASE CONFIGURATIONS    #######
 ########################################## 
+# app.config['MYSQL_HOST'] = 'sql8.freemysqlhosting.net'
+# app.config['MYSQL_USER'] = 'sql8509764'
+# app.config['MYSQL_PASSWORD'] = 'APMMErMaIN'
+# app.config['MYSQL_DB'] = 'sql8509764'
+
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'Gsandanat.1'
@@ -51,7 +56,7 @@ def current_user():
         user = session['user']
         # print(user)
         user_cur = db.connection.cursor()
-        user_cur.execute("SELECT * FROM car_owner WHERE OwnerID = %s", [user])
+        user_cur.execute("SELECT * FROM Car_owner WHERE OwnerID = %s", [user])
         logged_user = user_cur.fetchone()
     # print(logged_user)
     return logged_user
@@ -156,7 +161,7 @@ def login():
         staff_cur = db.connection.cursor()
 
          #   select the user from the database
-        user_cur.execute("SELECT * FROM car_owner WHERE Email= %s", [username])
+        user_cur.execute("SELECT * FROM Car_owner WHERE Email= %s", [username])
         staff_cur.execute("SELECT * FROM Staff_credentials WHERE Email=%s", [username])
 
         #   fetch the user
@@ -266,7 +271,7 @@ def register():
             user_cur = db.connection.cursor()
 
             #   Executing SQL Statements
-            user_cur.execute("INSERT INTO car_owner (FName, LName, Email, Tel, Pass, Conf_pass)\
+            user_cur.execute("INSERT INTO Car_owner (FName, LName, Email, Tel, Pass, Conf_pass)\
                             VALUES (%s, %s, %s, %s, %s, %s)", (FName, LName, email, phone, hashed_pass, conf_hashed_pass))
 
             #   Saving the actions performed on the DB
@@ -331,16 +336,16 @@ def bookService():
             cursor = db.connection.cursor()
                 
             #   Executing SQL Statements
-            cursor.execute('''INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number, OwnerID)
+            cursor.execute('''INSERT INTO Vehicle (Manufacturer, Model, RegYear, Reg_number, OwnerID)
                             VALUES (%s, %s, %s, %s, %b)''', (Manufacturer, Model, RegYear, Reg_number, OwnerID))
 
-            cursor.execute(''' INSERT INTO car_serviced (Date_serviced)
+            cursor.execute(''' INSERT INTO Car_serviced (Date_serviced)
                                VALUES (%s) ''', [Date_serviced])
 
 
             # ServiceTypeID = cursor.execute(''' SELECT (ServiceTypeID)  FROM service_type ''' )
 
-            cursor.execute(''' INSERT INTO car_serviced (ServiceTypeID) 
+            cursor.execute(''' INSERT INTO Car_serviced (ServiceTypeID) 
                                VALUES (%b)''', ServiceType)
             #   Saving the actions performed on the DB
             db.connection.commit()
@@ -364,10 +369,10 @@ def bookService():
             cursor = db.connection.cursor()
                 
             #   Executing SQL Statements
-            cursor.execute('''INSERT INTO vehicle (Manufacturer, Model, RegYear, Reg_number)
+            cursor.execute('''INSERT INTO Vehicle (Manufacturer, Model, RegYear, Reg_number)
                             VALUES (%s, %s, %s, %s)''', (Manufacturer, Model, RegYear, Reg_number))
 
-            cursor.execute(''' INSERT INTO car_serviced (Date_serviced)
+            cursor.execute(''' INSERT INTO Car_serviced (Date_serviced)
                                 VALUES (%s) ''', [Date_serviced])
 
             #   Saving the actions performed on the DB
@@ -390,16 +395,16 @@ def get_data():
     cur = db.connection.cursor()
     cur.execute(''' DROP VIEW IF EXISTS userHistory;
                     CREATE VIEW userHistory AS
-                    SELECT car_owner.FName,
-                           car_owner.LName,
-                           car_owner.Email,
-                           vehicle.Manufacturer,
-                           vehicle.Model,
-                           vehicle.RegYear,
-                           vehicle.Reg_number
-                    FROM car_owner
-                    INNER JOIN vehicle
-                    ON car_owner.OwnerID=vehicle.OwnerID''')
+                    SELECT Car_owner.FName,
+                           Car_owner.LName,
+                           Car_owner.Email,
+                           Vehicle.Manufacturer,
+                           Vehicle.Model,
+                           Vehicle.RegYear,
+                           Vehicle.Reg_number
+                    FROM Car_owner
+                    INNER JOIN Vehicle
+                    ON Car_owner.OwnerID=Vehicle.OwnerID''')
     rows = cur.fetchall()    
     return rows
 

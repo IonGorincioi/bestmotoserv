@@ -33,3 +33,124 @@
   margin: 30px;
   margin-left: 100px;
 }
+
+/* ################################################ */
+/* #########      RESPONSIVE STYLE     ############ */
+/* ################################################ */
+
+@media screen and (max-width: 1300px) {
+  .headingInfo h2 {
+    font-size: 22px;
+  }
+
+  .tableHeading h4 {
+    font-size: 18px;
+  }
+
+  .historyTable th,
+  .historyTable td {
+    font-size: 14px;
+  }
+
+  .historyTable {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+/* ##################################################### */
+
+@media screen and (max-width: 960px) {
+  .headingInfo h2 {
+    font-size: 20px;
+  }
+
+  .tableHeading h4 {
+    font-size: 16px;
+  }
+
+  .historyTable th,
+  .historyTable td {
+    font-size: 14px;
+  }
+
+  .historyTable tr td,
+  .historyTable tr th {
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+  }
+
+  .historyTable {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+/* ##################################################### */
+
+@media screen and (max-width: 640px) {
+  .headingInfo h2 {
+    font-size: 16px;
+    margin: -20px;
+  }
+
+  .tableHeading h4 {
+    font-size: 12px;
+  }
+
+  .tableHeading {
+    margin-top: 30px;
+  }
+
+  .historyTable th,
+  .historyTable td {
+    font-size: 10px;
+  }
+
+  .historyTable tr td,
+  .historyTable tr th {
+    text-align: center;
+    height: 15px;
+    padding: 3px;
+  }
+
+  .historyTable {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
+/* ##################################################### */
+
+@media screen and (max-width: 420px) {
+  .headingInfo h2 {
+    font-size: 14px;
+  }
+
+  .tableHeading h4 {
+    font-size: 10px;
+  }
+
+  .tableHeading {
+    margin-top: 20px;
+    margin-left: 10%;
+  }
+
+  .historyTable th,
+  .historyTable td {
+    font-size: 10px;
+  }
+
+  .historyTable tr td,
+  .historyTable tr th {
+    text-align: center;
+    height: 15px;
+    padding: 3px;
+  }
+
+  .historyTable {
+    width: 90%;
+    margin-left: 5%;
+  }
+}

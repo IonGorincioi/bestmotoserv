@@ -45,10 +45,6 @@ img {
   width: 70%;
 }
 
-/* .homepageButton {
-  margin: 50px 30px 50px 30px;
-} */
-
 /* ################################################ */
 /* #########      RESPONSIVE STYLE     ############ */
 /* ################################################ */
@@ -207,4 +203,7 @@ img {
     margin-left: 15%;
     margin-top: 300px;
   }
+}
+
+@media screen and (max-width: 420px) {
 }

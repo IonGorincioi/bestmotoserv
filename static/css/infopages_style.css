@@ -4,4 +4,14 @@
   width: 68%;
   float: left;
   background-color: #fbfbf8;
+  text-align: center;
+}
+
+/*   ########################################   */
+/*              CAR ACCIDENT PAGE               */
+/*   ########################################   */
+
+.carAccidentImg img {
+  width: 100%;
+  height: auto;
 }
