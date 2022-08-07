@@ -12,6 +12,21 @@
 /*   ########################################   */
 
 .carAccidentImg img {
-  width: 100%;
+  width: 50%;
   height: auto;
+  margin: 10px;
+  /* float: left; */
+}
+
+.carAccidentTips {
+  float: inline-start;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: justify;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.carAccidentTips h3 {
+  text-align: center;
 }

@@ -1,8 +1,8 @@
 
 # import pandas
 # from projectModule import current_user
-import smtplib
-import sqlite3, os
+import smtplib, ssl, os
+import sqlite3
 from flask_mail import Mail, Message
 from flask import Flask, redirect, render_template, request, url_for, session, redirect, flash
 from flask_mysqldb import MySQL
@@ -22,7 +22,7 @@ app.config['SECRET_KEY']=os.urandom(24)
 ########################################## 
 app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'BestMotoServ@outlook.com'
 app.config['MAIL_PASSWORD'] = 'MotoServ'
@@ -124,6 +124,7 @@ def contacts():
         email = request.form.get('email')
         message = request.form.get('message')
         phone = request.form.get('phone')
+
         msg = Message(subject=f'mail from {name}',
                       body = f"Name: {name} \n email: {email} \n Phone: {phone} \n\n\n {message}",
                       sender = email,
@@ -442,7 +443,28 @@ def userHistory():
 @app.route('/help')
 def helpPage():
     user = current_user()
+
+    if request.method == 'POST':
+
+        # name = request.form.get('fullname')
+        # sender = request.form.get('email')
+        # message = request.form.get('message')
+        message = "Successful connection"
+        # phone = request.form.get('phone')
+        
+        sender = 'BestMotoServ@outlook.com'
+        password = 'MotoServ'
+        receiver = 'iongorincioi@gmail.com'
+
+        smtp_server = smtplib.SMTP('smtp.office365.com', 587)
+        smtp_server.starttls()
+        smtp_server.login(sender, password) 
+        smtp_server.sendmail(sender, receiver, message)
+    
+
     return render_template('askforhelp.html', user = user)
+
+################################################################################################### 
 
 @app.route('/logout')
 def logout():
