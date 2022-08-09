@@ -32,15 +32,15 @@ app.config['MAIL_PASSWORD'] = 'MotoServ'
 ##########################################
 #####   DATABASE CONFIGURATIONS    #######
 ########################################## 
-# app.config['MYSQL_HOST'] = 'sql8.freemysqlhosting.net'
-# app.config['MYSQL_USER'] = 'sql8509764'
-# app.config['MYSQL_PASSWORD'] = 'APMMErMaIN'
-# app.config['MYSQL_DB'] = 'sql8509764'
+app.config['MYSQL_HOST'] = 'sql8.freemysqlhosting.net'
+app.config['MYSQL_USER'] = 'sql8509764'
+app.config['MYSQL_PASSWORD'] = 'APMMErMaIN'
+app.config['MYSQL_DB'] = 'sql8509764'
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Gsandanat.1'
-app.config['MYSQL_DB'] = 'GarageDB'
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'Gsandanat.1'
+# app.config['MYSQL_DB'] = 'GarageDB'
  
 
 db = MySQL(app)
