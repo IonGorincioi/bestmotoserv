@@ -1,32 +1,15 @@
-
-# import pandas
-# from projectModule import current_user
+from flask import Flask, redirect, render_template, request, url_for, session, redirect, flash
 import smtplib, ssl, os
 import sqlite3
 from flask_mail import Mail, Message
-from flask import Flask, redirect, render_template, request, url_for, session, redirect, flash
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash , check_password_hash
 
 app = Flask(__name__)
 
-mail = Mail(app)
-
 
 #   CONFIGURING THE SECRET KEY 
 app.config['SECRET_KEY']=os.urandom(24)
-
-
-##########################################
-#####   MAIL CONFIGURATION     #######
-########################################## 
-app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'BestMotoServ@outlook.com'
-app.config['MAIL_PASSWORD'] = 'MotoServ'
-
 
 
 ##########################################
@@ -37,9 +20,40 @@ app.config['MYSQL_USER'] = 'sql8509764'
 app.config['MYSQL_PASSWORD'] = 'APMMErMaIN'
 app.config['MYSQL_DB'] = 'sql8509764'
 
- 
+###################################################################################
+
+# app.config['MYSQL_HOST'] = 'garagedb.cfutvlemckit.us-east-1.rds.amazonaws.com'
+# app.config['MYSQL_USER'] = 'admin'
+# app.config['MYSQL_PASSWORD'] = 'password'
+# app.config['MYSQL_DB'] = 'GarageDB'
+
+
+####################################################################################
+
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = input('Enter the password: ')
+# app.config['MYSQL_DB'] = 'GarageDB'
+
+####################################################################################
 
 db = MySQL(app)
+
+
+
+##########################################
+#####   MAIL CONFIGURATION     #######
+########################################## 
+app.config['MAIL_SERVER'] = 'smtp.office365.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'BestMotoServ@outlook.com'
+app.config['MAIL_PASSWORD'] = 'MotoServ'
+
+
+mail = Mail(app)
+
 
 ##################################################################
 ###### FUNCTION THAT HOLD THE CURRENT USER IN THE SESSION ########
@@ -50,17 +64,10 @@ def current_user():
     
     if 'user' in session:
         user = session['user']
-        # print(user)
         user_cur = db.connection.cursor()
         user_cur.execute("SELECT * FROM Car_owner WHERE OwnerID = %s", [user])
         logged_user = user_cur.fetchone()
-    # print(logged_user)
     return logged_user
-
-# print(current_user)
-    
-
-
 
 
 ##################################################################
@@ -74,7 +81,7 @@ def current_staff():
         staff = session['staff']
 
         staff_cur = db.connection.cursor()
-        staff_cur.execute("SELECT * FROM staff_credentials WHERE CredentialsID = %s", [staff])
+        staff_cur.execute("SELECT * FROM Staff_credentials WHERE CredentialsID = %s", [staff])
         logged_staff = staff_cur.fetchone()
 
     return logged_staff
@@ -336,8 +343,8 @@ def bookService():
             cursor.execute('''INSERT INTO Vehicle (Manufacturer, Model, RegYear, Reg_number, OwnerID)
                             VALUES (%s, %s, %s, %s, %b)''', (Manufacturer, Model, RegYear, Reg_number, OwnerID))
 
-            cursor.execute(''' INSERT INTO Car_serviced (Date_serviced)
-                               VALUES (%s) ''', [Date_serviced])
+            # cursor.execute(''' INSERT INTO Car_serviced (Date_serviced)
+            #                    VALUES (%s) ''', [Date_serviced])
 
 
             # ServiceTypeID = cursor.execute(''' SELECT (ServiceTypeID)  FROM service_type ''' )
@@ -378,7 +385,7 @@ def bookService():
             cursor.close()
 
     return render_template('bookservice.html', user = user)
-#######################################################
+##########################################################################
     
     
     
@@ -436,32 +443,54 @@ def userHistory():
                                                result = result)
 
 ########################################################################
-@app.route('/help')
+def sendMail(result):
+    msg = Message("Hello",
+                  sender = 'BestMotoServ@outlook.com',
+                  recipients = 'MotoServ2@gmail.com')
+
+    msg.body = '''
+
+    Hello!
+
+    You have received a new email from:
+
+    name = {}
+    email = {}
+    phone = {}
+    message = {}
+
+    Regards.
+
+    '''.format(result['name'],
+               result['email'],
+               result['phone'],
+               result['message'])
+        
+    mail.send(msg)
+
+
+#################################################################
+@app.route('/help', methods = ['GET', 'POST'])
 def helpPage():
     user = current_user()
 
     if request.method == 'POST':
 
-        # name = request.form.get('fullname')
-        # sender = request.form.get('email')
-        # message = request.form.get('message')
-        message = "Successful connection"
-        # phone = request.form.get('phone')
+        result = {}
         
-        sender = 'BestMotoServ@outlook.com'
-        password = 'MotoServ'
-        receiver = 'iongorincioi@gmail.com'
+        result['name'] = request.form.get('fullname')
+        result['email'] = request.form.get('email')
+        result['phone'] = request.form.get('phone')
+        result['message'] = request.form.get('message')
 
-        smtp_server = smtplib.SMTP('smtp.office365.com', 587)
-        smtp_server.starttls()
-        smtp_server.login(sender, password) 
-        smtp_server.sendmail(sender, receiver, message)
-    
+        sendMail(result)
+
+        return render_template('askforhelp.html', user = user)
 
     return render_template('askforhelp.html', user = user)
 
-################################################################################################### 
 
+####################################################################################
 @app.route('/logout')
 def logout():
     session.pop('user', None)
@@ -470,6 +499,7 @@ def logout():
     return redirect(url_for('home'))
 
 
+####################################################################################
 @app.route('/updateAdmin')
 def updateAdmin():
     staff = current_staff()

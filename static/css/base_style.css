@@ -89,7 +89,7 @@ ul.navigation li a:hover {
 /* *******  FOOTER STYLE ******* */
 footer {
   float: left;
-  position: fixed;
+  position: relative;
   width: 100%;
   height: auto;
   padding-top: 20px;
